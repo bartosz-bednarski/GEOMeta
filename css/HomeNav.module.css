@@ -1,0 +1,14 @@
+.navigation {
+  margin-right: 100px;
+}
+.navigation ul li {
+  font-family: "Roboto", sans-serif;
+  list-style-type: none;
+  font-size: 20px;
+  color: white;
+  display: inline;
+  margin: 0 30px;
+}
+.navigation ul li:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=HomeNav.module.css.map */
