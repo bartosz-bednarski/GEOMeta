@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <IslandsPage />,
       },
       {
-        path: "other",
+        path: "others",
         element: <OtherPage />,
       },
       {
