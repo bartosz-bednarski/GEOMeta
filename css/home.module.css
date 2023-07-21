@@ -2,10 +2,54 @@
   display: flex;
   flex-direction: column;
 }
-
-.nav-container {
+.home__nav-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.home__main-container {
+  padding: 20vh 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.home__main-container__images-box {
+  position: relative;
+  height: 500px;
+  width: 700px;
+}
+.home__main-container__images-box__book {
+  width: 400px;
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+}
+.home__main-container__images-box__world {
+  width: 600px;
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+}
+.home__main-container__text-box {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+.home__main-container__text-box__logo {
+  font-size: 140px;
+  color: #fff;
+  font-family: Roboto;
+  -webkit-text-stroke: 5px #ff0404; /* width and color */
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
+}
+.home__main-container__text-box__text {
+  font-size: 36px;
+  color: white;
+  font-weight: 600;
 }/*# sourceMappingURL=home.module.css.map */
