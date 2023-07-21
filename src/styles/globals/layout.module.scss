@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Radley&family=Roboto:wght@700&display=swap");
 .layout {
   box-sizing: border-box;
+  background: rgb(64, 36, 134);
   background: linear-gradient(
-    138deg,
-    #402486 0%,
-    rgba(64, 36, 134, 0.86) 54.69%,
-    rgba(64, 36, 134, 0.75) 100%
+    174deg,
+    rgba(64, 36, 134, 1) 40%,
+    rgba(64, 36, 134, 0.9220063025210083) 58%,
+    rgba(64, 36, 134, 0.8379726890756303) 73%,
+    rgba(64, 36, 134, 0.7259278711484594) 87%,
+    rgba(64, 36, 134, 0.6250875350140056) 100%
   );
   width: 100%;
   height: auto;

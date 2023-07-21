@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Radley&family=Roboto:wght@700&display=swap");
 .layout {
   box-sizing: border-box;
-  background: linear-gradient(138deg, #402486 0%, rgba(64, 36, 134, 0.86) 54.69%, rgba(64, 36, 134, 0.75) 100%);
+  background: rgb(64, 36, 134);
+  background: linear-gradient(174deg, rgb(64, 36, 134) 40%, rgba(64, 36, 134, 0.9220063025) 58%, rgba(64, 36, 134, 0.8379726891) 73%, rgba(64, 36, 134, 0.7259278711) 87%, rgba(64, 36, 134, 0.625087535) 100%);
   width: 100%;
   height: auto;
   min-height: 100vh;
