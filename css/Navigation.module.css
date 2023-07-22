@@ -3,6 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-left: 95px;
 }
 .nav-container__navigation {
   margin-right: 100px;
@@ -17,4 +18,4 @@
 }
 .nav-container__navigation ul li:hover {
   cursor: pointer;
-}/*# sourceMappingURL=HomeNav.module.css.map */
+}/*# sourceMappingURL=Navigation.module.css.map */
