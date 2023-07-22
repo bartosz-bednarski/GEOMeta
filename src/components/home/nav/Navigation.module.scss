@@ -1,0 +1,23 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 95px;
+  &__navigation {
+    margin-right: 100px;
+    ul {
+      li {
+        font-family: "Roboto", sans-serif;
+        list-style-type: none;
+        font-size: 20px;
+        color: white;
+        display: inline;
+        margin: 0 30px;
+      }
+      li:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
