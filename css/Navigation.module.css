@@ -18,4 +18,7 @@
 }
 .nav-container__navigation ul li:hover {
   cursor: pointer;
+}
+.nav-container span {
+  width: 250px;
 }/*# sourceMappingURL=Navigation.module.css.map */

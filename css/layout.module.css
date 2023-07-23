@@ -2,7 +2,7 @@
 .layout {
   box-sizing: border-box;
   background: rgb(64, 36, 134);
-  background: linear-gradient(174deg, rgb(64, 36, 134) 40%, rgba(64, 36, 134, 0.9220063025) 58%, rgba(64, 36, 134, 0.8379726891) 73%, rgba(64, 36, 134, 0.7259278711) 87%, rgba(64, 36, 134, 0.625087535) 100%);
+  background: linear-gradient(167deg, rgba(56, 19, 150, 0.81) 0%, rgba(82, 18, 147, 0.89) 21.97%, rgba(112, 24, 166, 0.94) 41.48%, rgba(106, 33, 178, 0.94) 59.51%, rgba(85, 52, 168, 0.89) 97.32%);
   width: 100%;
   height: auto;
   min-height: 100vh;
