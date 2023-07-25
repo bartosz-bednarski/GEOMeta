@@ -1,9 +1,13 @@
 .home {
   display: flex;
   flex-direction: column;
-
+  height: auto;
+  padding: 0vh 10vw 0 5vw;
+  font-family: Roboto;
+  color: white;
   &__main-container {
-    padding: 20vh 10vw 0 5vw;
+    padding: 0;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,14 +22,114 @@
       gap: 30px;
       &__text {
         font-size: 36px;
-        color: white;
         font-weight: 600;
-        font-family: Roboto;
         margin-left: 10px;
       }
     }
     &__worldBookImg {
       width: 400px;
     }
+  }
+  &__section {
+    display: flex;
+    width: 100%;
+    padding: 00px 0;
+
+    flex-direction: row;
+    &__no-content {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+      span {
+        width: 50%;
+        height: calc(100% - 2px);
+        margin-right: 4px;
+      }
+    }
+    &__content {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+      align-items: start;
+      &-img {
+        width: 50%;
+      }
+      &-text {
+        box-sizing: border-box;
+        position: relative;
+        padding: 20px 0px;
+        height: 100%;
+        h1 {
+          font-weight: 600;
+        }
+      }
+      // &-text::before {
+
+      // }
+    }
+    &__left {
+      text-align: left;
+    }
+    &__right {
+      text-align: right;
+    }
+  }
+  &-border-left {
+    border-left: 2px dashed white;
+  }
+  &-border-right {
+    border-right: 2px dashed white;
+  }
+  &-border-top {
+    border-top: 2px dashed white;
+  }
+  &-corners-right {
+    margin-right: 20px;
+  }
+  &-corners-right::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 20px;
+    width: 20px;
+    border-right: 2px dashed white;
+  }
+  &-corners-right::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 20px;
+    width: 20px;
+    border-right: 2px dashed white;
+  }
+  &-corners-left {
+    margin-left: 0px;
+  }
+  &-corners-left::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 20px;
+    border-left: 2px dashed white;
+  }
+  &-corners-left::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 20px;
+    border-left: 2px dashed white;
+  }
+  &-border-bottom {
+    border-bottom: 2px dashed white;
   }
 }

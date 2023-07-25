@@ -1,9 +1,14 @@
 .home {
   display: flex;
   flex-direction: column;
+  height: auto;
+  padding: 0vh 10vw 0 5vw;
+  font-family: Roboto;
+  color: white;
 }
 .home__main-container {
-  padding: 20vh 10vw 0 5vw;
+  padding: 0;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -19,11 +24,107 @@
 }
 .home__main-container__text-box__text {
   font-size: 36px;
-  color: white;
   font-weight: 600;
-  font-family: Roboto;
   margin-left: 10px;
 }
 .home__main-container__worldBookImg {
   width: 400px;
+}
+.home__section {
+  display: flex;
+  width: 100%;
+  padding: 0px 0;
+  flex-direction: row;
+}
+.home__section__no-content {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+.home__section__no-content span {
+  width: 50%;
+  height: calc(100% - 2px);
+  margin-right: 4px;
+}
+.home__section__content {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: start;
+}
+.home__section__content-img {
+  width: 50%;
+}
+.home__section__content-text {
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px 0px;
+  height: 100%;
+}
+.home__section__content-text h1 {
+  font-weight: 600;
+}
+.home__section__left {
+  text-align: left;
+}
+.home__section__right {
+  text-align: right;
+}
+.home-border-left {
+  border-left: 2px dashed white;
+}
+.home-border-right {
+  border-right: 2px dashed white;
+}
+.home-border-top {
+  border-top: 2px dashed white;
+}
+.home-corners-right {
+  margin-right: 20px;
+}
+.home-corners-right::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 20px;
+  width: 20px;
+  border-right: 2px dashed white;
+}
+.home-corners-right::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 20px;
+  width: 20px;
+  border-right: 2px dashed white;
+}
+.home-corners-left {
+  margin-left: 0px;
+}
+.home-corners-left::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  border-left: 2px dashed white;
+}
+.home-corners-left::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  border-left: 2px dashed white;
+}
+.home-border-bottom {
+  border-bottom: 2px dashed white;
 }/*# sourceMappingURL=home.module.css.map */
