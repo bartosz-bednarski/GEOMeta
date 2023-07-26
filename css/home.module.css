@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: row;
   width: 50%;
-  align-items: start;
+  align-items: flex-start;
 }
 .home__section__content-img {
   width: 50%;

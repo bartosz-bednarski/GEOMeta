@@ -1,6 +1,4 @@
-import HomeNav from "./nav/Navigation";
 import classes from "./home.module.scss";
-import LogoSmall from "../tools/LogoSmall";
 import Africa from "../../assets/images/home/africa.1024x977.png";
 import LogoBig from "../tools/LogoBig";
 import worldBookImg from "../../assets/images/home/grafika1v21.png";

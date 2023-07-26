@@ -1,6 +1,6 @@
 import { Router, useNavigate } from "react-router-dom";
 import classes from "./Navigation.module.scss";
-import LogoSmall from "../../tools/LogoSmall";
+import LogoSmall from "../tools/LogoSmall";
 const HomeNav = () => {
   const navigate = useNavigate();
   return (
