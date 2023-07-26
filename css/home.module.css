@@ -58,7 +58,7 @@
 .home__section__content-text {
   box-sizing: border-box;
   position: relative;
-  padding: 20px 0px;
+  padding: 20px 20px;
   height: 100%;
 }
 .home__section__content-text h1 {
@@ -127,4 +127,8 @@
 }
 .home-border-bottom {
   border-bottom: 2px dashed white;
+}
+.home-corners-left:nth-of-type(3)::after {
+  content: "";
+  border: none;
 }/*# sourceMappingURL=home.module.css.map */

@@ -57,7 +57,7 @@
       &-text {
         box-sizing: border-box;
         position: relative;
-        padding: 20px 0px;
+        padding: 20px 20px;
         height: 100%;
         h1 {
           font-weight: 600;
@@ -131,5 +131,9 @@
   }
   &-border-bottom {
     border-bottom: 2px dashed white;
+  }
+  &-corners-left:nth-of-type(3)::after {
+    content: "";
+    border: none;
   }
 }
