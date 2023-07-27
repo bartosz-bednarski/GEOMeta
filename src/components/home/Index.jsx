@@ -161,7 +161,7 @@ const Home = () => {
               interakcji, gdzie użytkownicy wspierają się nawzajem, odpowiadając
               na pytania i udzielając cennych wskazówek. Wspólnie tworzymy
               dynamiczną społeczność, której celem jest wzajemna pomoc i wzrost
-              wiedzy we GeoGuessrowych podrózach.
+              wiedzy we GeoGuessrowych podróżach.
             </p>
           </span>
         </div>
