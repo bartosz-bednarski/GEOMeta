@@ -2,7 +2,7 @@ import classes from "./home.module.scss";
 import LogoSmall from "../tools/LogoSmall";
 import Africa from "../../assets/images/home/africa.1024x977.png";
 import LogoBig from "../tools/LogoBig";
-import worldBookImg from "../../assets/images/home/grafika1v21.png";
+import worldBookImg from "../../assets/images/home/world.png";
 import lemur from "../../assets/images/home/lemur.png";
 import rucksack from "../../assets/images/home/rucksack.png";
 import statue from "../../assets/images/home/statueofliberty.png";
@@ -49,7 +49,9 @@ const Home = () => {
             </p>
           </span>
         </div>
-        <div className={classes["home__section__no-content"]} />
+        <div
+          className={`${classes["home__section__no-content"]} ${classes["home-border-bottom"]} `}
+        />
       </section>
       <section
         className={`${classes["home__section"]} ${classes["home__section__right"]}`}
@@ -60,7 +62,7 @@ const Home = () => {
         </div>
         <div className={classes["home__section__content"]}>
           <span
-            className={`${classes["home__section__content-text"]} ${classes["home-border-top"]} ${classes["home-border-bottom"]} ${classes["home-corners-right"]}`}
+            className={`${classes["home__section__content-text"]}  ${classes["home-border-bottom"]} ${classes["home-corners-right"]}`}
           >
             <h1>Wyspy</h1>
             <br />
@@ -115,13 +117,11 @@ const Home = () => {
       >
         <div className={classes["home__section__no-content"]}>
           <span />
-          <span
-            className={`${classes["home-border-bottom"]} ${classes["home-border-top"]}`}
-          />
+          <span className={`${classes["home-border-bottom"]} `} />
         </div>
         <div className={classes["home__section__content"]}>
           <span
-            className={`${classes["home__section__content-text"]} ${classes["home-border-top"]} ${classes["home-border-bottom"]} ${classes["home-corners-right"]}`}
+            className={`${classes["home__section__content-text"]}  ${classes["home-border-bottom"]} ${classes["home-corners-right"]}`}
           >
             <h1>Inne</h1>
             <br />
