@@ -58,11 +58,7 @@
 .home__section__content-text {
   box-sizing: border-box;
   position: relative;
-<<<<<<< HEAD
-  padding: 20px 0px;
-=======
   padding: 20px 20px;
->>>>>>> dev
   height: 100%;
 }
 .home__section__content-text h1 {
@@ -75,13 +71,22 @@
   text-align: right;
 }
 .home-border-left {
-  border-left: 2px dashed white;
+  background-image: linear-gradient(white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: right;
+  background-size: 2px 30px;
+  background-repeat: repeat-y;
 }
 .home-border-right {
-  border-right: 2px dashed white;
+  background-image: linear-gradient(white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: right;
+  background-size: 2px 30px;
+  background-repeat: repeat-y;
 }
-.home-border-top {
-  border-top: 2px dashed white;
+.home-border-bottom {
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 37px 2px;
+  background-repeat: repeat-x;
 }
 .home-corners-right {
   margin-right: 20px;
@@ -128,14 +133,4 @@
   height: 20px;
   width: 20px;
   border-left: 2px dashed white;
-}
-.home-border-bottom {
-  border-bottom: 2px dashed white;
-<<<<<<< HEAD
-=======
-}
-.home-corners-left:nth-of-type(3)::after {
-  content: "";
-  border: none;
->>>>>>> dev
 }/*# sourceMappingURL=home.module.css.map */
