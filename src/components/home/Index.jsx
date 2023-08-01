@@ -7,7 +7,16 @@ import lemur from "../../assets/images/home/lemur.png";
 import rucksack from "../../assets/images/home/rucksack.png";
 import statue from "../../assets/images/home/statueofliberty.png";
 import forum from "../../assets/images/home/forum.png";
+import { useEffect } from "react";
+import axios from "axios";
 const Home = () => {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const results = await axios.get("http://localhost:5000/api/continents");
+  //     console.log(results);
+  //   };
+  //   fetchData();
+  // });
   return (
     <div className={classes.home}>
       <main className={classes["home__main-container"]}>
