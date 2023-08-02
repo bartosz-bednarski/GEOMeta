@@ -58,9 +58,10 @@ const Home = () => {
             </p>
           </span>
         </div>
-        <div
-          className={`${classes["home__section__no-content"]} ${classes["home-border-bottom"]} `}
-        />
+        <div className={`${classes["home__section__no-content"]}  `}>
+          <span className={classes["home-border-bottom"]} />
+          <span />
+        </div>
       </section>
       <section
         className={`${classes["home__section"]} ${classes["home__section__right"]}`}
@@ -126,11 +127,11 @@ const Home = () => {
       >
         <div className={classes["home__section__no-content"]}>
           <span />
-          <span className={`${classes["home-border-bottom"]} `} />
+          <span className={`${classes["home-border-top"]} `} />
         </div>
         <div className={classes["home__section__content"]}>
           <span
-            className={`${classes["home__section__content-text"]}  ${classes["home-border-bottom"]} ${classes["home-corners-right"]}`}
+            className={`${classes["home__section__content-text"]}  ${classes["home-border-top"]} ${classes["home-corners-right"]}`}
           >
             <h1>Inne</h1>
             <br />
@@ -156,7 +157,7 @@ const Home = () => {
         <div className={classes["home__section__content"]}>
           <img src={forum} className={classes["home__section__content-img"]} />
           <span
-            className={`${classes["home__section__content-text"]} ${classes["home-corners-left"]}`}
+            className={`${classes["home__section__content-text"]} ${classes["home-corner-left-top"]} ${classes["home-border-top"]}`}
           >
             <h1>Forum</h1>
             <br />
@@ -174,7 +175,10 @@ const Home = () => {
             </p>
           </span>
         </div>
-        <div className={classes["home__section__no-content"]} />
+        <div className={classes["home__section__no-content"]}>
+          <span className={classes["home-border-top"]} />
+          <span />
+        </div>
       </section>
     </div>
   );

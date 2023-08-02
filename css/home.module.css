@@ -43,7 +43,7 @@
 }
 .home__section__no-content span {
   width: 50%;
-  height: calc(100% - 2px);
+  height: 100%;
   margin-right: 4px;
 }
 .home__section__content {
@@ -82,10 +82,16 @@
   background-size: 2px 30px;
   background-repeat: repeat-y;
 }
+.home-border-top {
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: top;
+  background-size: 39px 2px;
+  background-repeat: repeat-x;
+}
 .home-border-bottom {
   background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
-  background-size: 37px 2px;
+  background-size: 39px 2px;
   background-repeat: repeat-x;
 }
 .home-corners-right {
@@ -96,20 +102,26 @@
   display: block;
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: -4px;
   height: 20px;
-  width: 20px;
-  border-right: 2px dashed white;
+  width: 4px;
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-y;
 }
 .home-corners-right::after {
   content: "";
   display: block;
   position: absolute;
   bottom: 0px;
-  right: 0px;
+  right: -4px;
   height: 20px;
-  width: 20px;
-  border-right: 2px dashed white;
+  width: 4px;
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-y;
 }
 .home-corners-left {
   margin-left: 0px;
@@ -119,18 +131,40 @@
   display: block;
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -4px;
   height: 20px;
-  width: 20px;
-  border-left: 2px dashed white;
+  width: 4px;
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-y;
 }
 .home-corners-left::after {
   content: "";
   display: block;
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  left: -4px;
   height: 20px;
-  width: 20px;
-  border-left: 2px dashed white;
+  width: 4px;
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-y;
+}
+.home-corner-left-top {
+  margin-left: 0px;
+}
+.home-corner-left-top::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: -4px;
+  height: 20px;
+  width: 4px;
+  background-image: linear-gradient(to right, white 60%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-y;
 }/*# sourceMappingURL=home.module.css.map */
