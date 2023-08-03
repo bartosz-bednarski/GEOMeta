@@ -1,0 +1,28 @@
+.continents {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 0vh 0vw 0 0vw;
+  font-family: Roboto;
+  color: white;
+}
+.continents__main-container {
+  box-sizing: border-box;
+  padding: 10vh 0;
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2%;
+  align-items: center;
+}
+.continents__main-container__img-container {
+  display: flex;
+  width: 27%;
+  justify-content: center;
+  align-items: center;
+}
+.continents__main-container__img-container svg {
+  width: 60%;
+}/*# sourceMappingURL=continents.module.css.map */
