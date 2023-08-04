@@ -8,7 +8,7 @@ import AfricaImg from "../../assets/images/continents/AfricaImg";
 import AustraliaImg from "../../assets/images/continents/AustraliaImg";
 import { useState } from "react";
 const Continents = () => {
-  const [activeState, setActiveState] = useState("#68E1FD");
+  const [activeState, setActiveState] = useState("black");
   return (
     <div className={classes.continents}>
       <main className={classes["continents__main-container"]}>
