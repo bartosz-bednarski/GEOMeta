@@ -8,21 +8,53 @@
 }
 .continents__main-container {
   box-sizing: border-box;
+  position: relative;
   padding: 10vh 0;
-  height: 85vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2%;
-  align-items: center;
+  margin: 10vh auto 5vh auto;
+  width: 1400px;
+  height: 680px;
 }
 .continents__main-container__img-container {
   display: flex;
-  width: 27%;
   justify-content: center;
   align-items: center;
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  padding: 50px 100px;
 }
-.continents__main-container__img-container svg {
-  width: 60%;
+.continents__main-container__img-container:hover {
+  cursor: pointer;
+}
+.continents__main-container .northAmerica {
+  top: 25px;
+  left: 10px;
+  width: 29%;
+  z-index: 2;
+}
+.continents__main-container .southAmerica {
+  top: 317px;
+  left: 137px;
+  width: 17%;
+}
+.continents__main-container .europe {
+  top: 36px;
+  left: 505px;
+  width: 17%;
+  z-index: 2;
+}
+.continents__main-container .africa {
+  top: 252px;
+  left: 514px;
+  width: 17%;
+}
+.continents__main-container .asia {
+  top: 87px;
+  left: 645px;
+  width: 34%;
+}
+.continents__main-container .australia {
+  top: 357px;
+  left: 938px;
+  width: 16%;
 }/*# sourceMappingURL=continents.module.css.map */

@@ -7,24 +7,55 @@
   color: white;
   &__main-container {
     box-sizing: border-box;
+    position: relative;
     padding: 10vh 0;
-    height: 85vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2%;
-    align-items: center;
+    margin: 10vh auto 5vh auto;
+    width: 1400px;
+    height: 680px;
+
     &__img-container {
       display: flex;
-      width: 27%;
       justify-content: center;
       align-items: center;
-      svg {
-        width: 60%;
-        // background-color: black;
-        // opacity: 0.7;
-      }
+      width: 25%;
+      height: 25%;
+      position: absolute;
+      padding: 50px 100px;
+    }
+    &__img-container:hover {
+      cursor: pointer;
+    }
+    .northAmerica {
+      top: 25px;
+      left: 10px;
+      width: 29%;
+      z-index: 2;
+    }
+    .southAmerica {
+      top: 317px;
+      left: 137px;
+      width: 17%;
+    }
+    .europe {
+      top: 36px;
+      left: 505px;
+      width: 17%;
+      z-index: 2;
+    }
+    .africa {
+      top: 252px;
+      left: 514px;
+      width: 17%;
+    }
+    .asia {
+      top: 87px;
+      left: 645px;
+      width: 34%;
+    }
+    .australia {
+      top: 357px;
+      left: 938px;
+      width: 16%;
     }
   }
 }
