@@ -7,22 +7,26 @@ import SouthAmericaImg from "../../assets/images/continents/SouthAmericaImg";
 import AfricaImg from "../../assets/images/continents/AfricaImg";
 import AustraliaImg from "../../assets/images/continents/AustraliaImg";
 import WorldImg from "../../assets/images/continents/WorldImg";
-import { useState } from "react";
+import NorthAmericaSingleImg from "../../assets/images/continents/continentsSingle/northAmerica.svg";
+import { useRef, useState } from "react";
 const Continents = () => {
   const [activeContinent, setActiveContinent] = useState({
     active: false,
     continent: "",
   });
+  const continentRef = useRef(null);
+
   const activeContinentHandler = (continent) => {
     setActiveContinent({
       active: true,
       continent: continent,
     });
+    continentRef.current.scrollIntoView({ behavior: "smooth" });
   };
   console.log(activeContinent);
   return (
     <div className={classes.continents}>
-      <main className={classes["continents__main-container"]}>
+      <main className={classes["continents__map-container"]}>
         {!activeContinent.active && (
           <WorldImg activeContinentHandler={activeContinentHandler} />
         )}
@@ -63,6 +67,17 @@ const Continents = () => {
           />
         )}
       </main>
+      <div className={classes["continents__continent"]} ref={continentRef}>
+        <div className={classes["continents__continent__image-box"]}>
+          <span className={classes["continents__continent__image-box__title"]}>
+            {activeContinent.continent}
+          </span>
+          <img
+            src={NorthAmericaSingleImg}
+            className={classes["continents__continent__image-box__image"]}
+          />
+        </div>
+      </div>
     </div>
   );
 };

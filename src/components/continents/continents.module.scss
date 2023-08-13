@@ -5,63 +5,31 @@
   padding: 0vh 0vw 0 0vw;
   font-family: Roboto;
   color: white;
-  &__main-container {
+  &__map-container {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     padding: 0vh 0;
     margin: 0vh auto 5vh auto;
     width: 100%;
-    height: 80vh;
-
-    // &__img-container {
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   width: 25%;
-    //   height: 25%;
-    //   position: absolute;
-    //   padding: 50px 100px;
-    //   z-index: 0;
-    //   svg {
-    //     z-index: 0;
-    //     path {
-    //       z-index: 4;
-    //     }
-    //   }
-    // }
-    // &__img-container:hover {
-    //   cursor: pointer;
-    // }
-    // .northAmerica {
-    //   top: 25px;
-    //   left: 10px;
-    //   width: 29%;
-    // }
-    // .southAmerica {
-    //   top: 317px;
-    //   left: 137px;
-    //   width: 17%;
-    // }
-    // .europe {
-    //   top: 36px;
-    //   left: 505px;
-    //   width: 17%;
-    // }
-    // .africa {
-    //   top: 252px;
-    //   left: 514px;
-    //   width: 17%;
-    // }
-    // .asia {
-    //   top: 87px;
-    //   left: 645px;
-    //   width: 34%;
-    // }
-    // .australia {
-    //   top: 357px;
-    //   left: 938px;
-    //   width: 16%;
-    // }
+    height: auto;
+  }
+  &__continent {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    &__image-box {
+      display: flex;
+      flex-direction: column;
+      &__title {
+        font-size: 26px;
+        text-align: center;
+      }
+      &__image {
+        width: 480px;
+      }
+    }
   }
 }
