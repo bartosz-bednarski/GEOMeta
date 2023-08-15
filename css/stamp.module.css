@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap");
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+    transform: rotate(-2deg) scale(5);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1);
+  }
+}
+.img-container {
+  position: relative;
+  cursor: pointer;
+}
+.img-container__stamp {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 8px 5px;
+  z-index: 2;
+  background-color: transparent;
+  border: 2px solid #3e9eb5;
+  border-radius: 12px;
+  color: #3e9eb5;
+  width: 270px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: pulse;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  animation-duration: 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.img-container__stamp__content {
+  box-sizing: border-box;
+  font-family: "Courier Prime", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 2px dashed #3e9eb5;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  padding: 7px 4px;
+  gap: 3px;
+}
+.img-container__stamp__content__date {
+  border: 2px solid black;
+  padding: 2px;
+  color: black;
+}
+.img-container__stamp__content__code {
+  color: black;
+}
+.img-container__stamp__northAmerica {
+  top: 160px;
+  left: 60px;
+}
+.img-container__stamp__southAmerica {
+  bottom: 330px;
+  left: 180px;
+}
+.img-container__stamp__europe {
+  top: 230px;
+  left: 450px;
+}
+.img-container__stamp__asia {
+  top: 230px;
+  left: 720px;
+}
+.img-container__stamp__africa {
+  bottom: 330px;
+  left: 480px;
+}
+.img-container__stamp__oceania {
+  bottom: 160px;
+  left: 900px;
+}/*# sourceMappingURL=stamp.module.css.map */

@@ -14,6 +14,7 @@ import OceaniaSingleImg from "../../assets/images/continents/continentsSingle/oc
 import EuropeSingleImg from "../../assets/images/continents/continentsSingle/europe2.svg";
 import AsiaSingleImg from "../../assets/images/continents/continentsSingle/asia2.svg";
 import { useEffect, useRef, useState } from "react";
+import Stamp from "./Stamp";
 const Continents = () => {
   const [activeContinent, setActiveContinent] = useState({
     active: false,
@@ -21,7 +22,25 @@ const Continents = () => {
     continent: "",
   });
   const continentRef = useRef(null);
-
+  var month = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const date = new Date();
+  let day = new String(date.getDay());
+  day = day.length === 1 ? `0${day}` : day;
+  const dateToExp =
+    day + " " + month[date.getMonth()] + " " + date.getFullYear();
   // let check = activeContinent.id !== "" ? true : false;
 
   const activeContinentHandler = ({ id: id, continent: continent }) => {
@@ -30,7 +49,9 @@ const Continents = () => {
       id: id,
       continent: continent,
     });
-    continentRef.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      continentRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 2600);
   };
 
   // useEffect(() => {
@@ -45,40 +66,76 @@ const Continents = () => {
           <WorldImg activeContinentHandler={activeContinentHandler} />
         )}
         {activeContinent.id === "northAmerica" && (
-          <NorthAmericaImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="northAmerica"
+          >
+            <NorthAmericaImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
         {activeContinent.id === "southAmerica" && (
-          <SouthAmericaImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="southAmerica"
+          >
+            <SouthAmericaImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
         {activeContinent.id === "europe" && (
-          <EuropeImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="europe"
+          >
+            <EuropeImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
         {activeContinent.id === "africa" && (
-          <AfricaImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="africa"
+          >
+            <AfricaImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
         {activeContinent.id === "asia" && (
-          <AsiaImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="asia"
+          >
+            <AsiaImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
         {activeContinent.id === "oceania" && (
-          <AustraliaImg
-            activeContinent={activeContinent}
-            activeContinentHandler={activeContinentHandler}
-          />
+          <Stamp
+            continent={activeContinent.continent}
+            date={dateToExp}
+            style="oceania"
+          >
+            <AustraliaImg
+              activeContinent={activeContinent}
+              activeContinentHandler={activeContinentHandler}
+            />
+          </Stamp>
         )}
       </main>
       <div className={classes["continents__continent"]} ref={continentRef}>
