@@ -1,7 +1,6 @@
 import classes from "./stamp.module.scss";
 const Stamp = (props) => {
   let continent = props.continent;
-  console.log(props.style);
   return (
     <div className={classes["img-container"]}>
       <div
