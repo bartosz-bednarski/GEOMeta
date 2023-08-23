@@ -1,12 +1,5 @@
 import classes from "./continents.module.scss";
 
-import EuropeImg from "../../assets/images/continents/EuropeImg";
-import NorthAmericaImg from "../../assets/images/continents/NorthAmericaImg";
-import AsiaImg from "../../assets/images/continents/AsiaImg";
-import SouthAmericaImg from "../../assets/images/continents/SouthAmericaImg";
-import AfricaImg from "../../assets/images/continents/AfricaImg";
-import AustraliaImg from "../../assets/images/continents/AustraliaImg";
-import WorldImg from "../../assets/images/continents/WorldImg";
 import NorthAmericaSingleImg from "../../assets/images/continents/continentsSingle/northAmerica.svg";
 import SouthAmericaSingleImg from "../../assets/images/continents/continentsSingle/southAmerica.svg";
 import AfricaSingleImg from "../../assets/images/continents/continentsSingle/africa6.svg";
@@ -14,130 +7,45 @@ import OceaniaSingleImg from "../../assets/images/continents/continentsSingle/oc
 import EuropeSingleImg from "../../assets/images/continents/continentsSingle/europe2.svg";
 import AsiaSingleImg from "../../assets/images/continents/continentsSingle/asia2.svg";
 import { useEffect, useRef, useState } from "react";
-import Stamp from "./Stamp";
+import WorldMap from "./WorldMap";
+import CountryLabel from "../ui/CountryLabel";
+
 const Continents = () => {
   const [activeContinent, setActiveContinent] = useState({
     active: false,
     id: "",
     continent: "",
   });
+  const [countries, setCountries] = useState([]);
   const continentRef = useRef(null);
-  var month = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const date = new Date();
-  let day = new String(date.getDay());
-  day = day.length === 1 ? `0${day}` : day;
-  const dateToExp =
-    day + " " + month[date.getMonth()] + " " + date.getFullYear();
+
   // let check = activeContinent.id !== "" ? true : false;
 
-  const activeContinentHandler = ({ id: id, continent: continent }) => {
+  const activeContinentHandler = async ({ id: id, continent: continent }) => {
     setActiveContinent({
       active: true,
       id: id,
       continent: continent,
     });
+    const response = await fetch(
+      `https://geo-meta-rest-api.vercel.app/api/continents/${id}`
+    );
+    const data = await response.json();
+    setCountries(data.data);
     setTimeout(() => {
       continentRef.current.scrollIntoView({ behavior: "smooth" });
-    }, 2600);
+    }, 1500);
   };
-
   // useEffect(() => {
   //   activeContinentHandler();
   // }, []);
 
-  console.log(activeContinent);
   return (
     <div className={classes.continents}>
-      <main className={classes["continents__map-container"]}>
-        {!activeContinent.active && (
-          <WorldImg activeContinentHandler={activeContinentHandler} />
-        )}
-        {activeContinent.id === "northAmerica" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="northAmerica"
-          >
-            <NorthAmericaImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-        {activeContinent.id === "southAmerica" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="southAmerica"
-          >
-            <SouthAmericaImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-        {activeContinent.id === "europe" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="europe"
-          >
-            <EuropeImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-        {activeContinent.id === "africa" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="africa"
-          >
-            <AfricaImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-        {activeContinent.id === "asia" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="asia"
-          >
-            <AsiaImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-        {activeContinent.id === "oceania" && (
-          <Stamp
-            continent={activeContinent.continent}
-            date={dateToExp}
-            style="oceania"
-          >
-            <AustraliaImg
-              activeContinent={activeContinent}
-              activeContinentHandler={activeContinentHandler}
-            />
-          </Stamp>
-        )}
-      </main>
+      <WorldMap
+        activeContinent={activeContinent}
+        activeContinentHandler={activeContinentHandler}
+      />
       <div className={classes["continents__continent"]} ref={continentRef}>
         <div className={classes["continents__continent__image-box"]}>
           <span className={classes["continents__continent__image-box__title"]}>
@@ -157,6 +65,22 @@ const Continents = () => {
             className={classes["continents__continent__image-box__image"]}
           />
         </div>
+
+        {countries.length > 0 && (
+          <div className={classes["continents__continent__countries-box"]}>
+            <CountryLabel />
+            {countries.map((country) => {
+              return (
+                <CountryLabel
+                  img={country.img}
+                  country={country.country}
+                  key={country.country}
+                  continent={activeContinent.id}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
