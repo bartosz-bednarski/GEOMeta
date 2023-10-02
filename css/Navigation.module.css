@@ -3,6 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background: rgba(56, 19, 150, 0.65);
+  padding: 1rem 3rem;
 }
 .nav-container__navigation {
   margin-right: 100px;
@@ -21,4 +23,98 @@
 .nav-container__navigation__login-register-container {
   display: inline-flex;
   gap: 1rem;
+}
+.nav-container__navigation__button {
+  display: none;
+}
+.nav-container__dropdown-menu--shown {
+  display: none;
+  opacity: 0;
+}
+
+@keyframes dropdown {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+@keyframes dropdown-mobile {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100vw;
+  }
+}
+@media only screen and (max-width: 1540px) {
+  .nav-container {
+    position: relative;
+  }
+  .nav-container__navigation__pages {
+    display: none;
+  }
+  .nav-container__navigation__login-register-container {
+    display: none;
+  }
+  .nav-container__navigation__button {
+    background-color: transparent;
+    border: none;
+    display: block;
+  }
+  .nav-container__navigation__button-hamburger-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .nav-container__navigation__button:hover {
+    cursor: pointer;
+  }
+  .nav-container__dropdown-menu--shown {
+    opacity: 1;
+    animation: dropdown 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  .nav-container__dropdown-menu--shown__pages {
+    display: block;
+    list-style-type: none;
+  }
+  .nav-container__dropdown-menu--shown__pages li {
+    padding: 0.5rem 1.7rem 0.5rem 6rem;
+    text-align: right;
+    background: #239bd0;
+    background-image: linear-gradient(rgba(9, 200, 226, 0.7), rgba(16, 105, 116, 0.7));
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: 0.4s;
+  }
+  .nav-container__dropdown-menu--shown__pages li:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+  .nav-container__dropdown-menu--shown__login-register-container {
+    display: block;
+  }
+  .nav-container__button {
+    background-color: transparent;
+    border: none;
+    display: block;
+  }
+  .nav-container__button-hamburger-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .nav-container__button:hover {
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .nav-container__dropdown-menu--shown {
+    animation: dropdown-mobile 0.3s ease-in-out;
+    width: 100vw;
+  }
 }/*# sourceMappingURL=Navigation.module.css.map */

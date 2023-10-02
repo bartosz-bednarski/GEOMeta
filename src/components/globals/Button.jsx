@@ -1,7 +1,7 @@
 import classes from "./button.module.scss";
 const Button = (props) => {
   return (
-    <button onClick={props.onClick} className={classes.button}>
+    <button className={classes["button-global"]} onClick={props.onClick}>
       {props.content}
     </button>
   );
