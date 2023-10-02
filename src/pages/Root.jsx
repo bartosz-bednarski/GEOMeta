@@ -6,8 +6,8 @@ const RootLayout = () => {
   return (
     <>
       {" "}
+      <Navigation />
       <div className={classes["layout"]}>
-        <Navigation />
         <Outlet />
       </div>
       <Footer />

@@ -8,7 +8,7 @@
 }
 .home__main-container {
   padding: 0;
-  height: 100vh;
+  height: 84vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
