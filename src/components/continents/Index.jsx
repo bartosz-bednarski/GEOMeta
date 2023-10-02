@@ -45,42 +45,46 @@ const Continents = () => {
         activeContinent={activeContinent}
         activeContinentHandler={activeContinentHandler}
       />
-      <div className={classes["continents__continent"]} ref={continentRef}>
-        <div className={classes["continents__continent__image-box"]}>
-          <span className={classes["continents__continent__image-box__title"]}>
-            {activeContinent.continent}
-          </span>
-          <img
-            src={
-              (activeContinent.id === "africa" && AfricaSingleImg) ||
-              (activeContinent.id === "asia" && AsiaSingleImg) ||
-              (activeContinent.id === "europe" && EuropeSingleImg) ||
-              (activeContinent.id === "northAmerica" &&
-                NorthAmericaSingleImg) ||
-              (activeContinent.id === "southAmerica" &&
-                SouthAmericaSingleImg) ||
-              (activeContinent.id === "oceania" && OceaniaSingleImg)
-            }
-            className={classes["continents__continent__image-box__image"]}
-          />
-        </div>
-
-        {countries.length > 0 && (
-          <div className={classes["continents__continent__countries-box"]}>
-            <CountryLabel />
-            {countries.map((country) => {
-              return (
-                <CountryLabel
-                  img={country.img}
-                  country={country.country}
-                  key={country.country}
-                  continent={activeContinent.id}
-                />
-              );
-            })}
+      {activeContinent.active !== false && (
+        <div className={classes["continents__continent"]} ref={continentRef}>
+          <div className={classes["continents__continent__image-box"]}>
+            <span
+              className={classes["continents__continent__image-box__title"]}
+            >
+              {activeContinent.continent}
+            </span>
+            <img
+              src={
+                (activeContinent.id === "africa" && AfricaSingleImg) ||
+                (activeContinent.id === "asia" && AsiaSingleImg) ||
+                (activeContinent.id === "europe" && EuropeSingleImg) ||
+                (activeContinent.id === "northAmerica" &&
+                  NorthAmericaSingleImg) ||
+                (activeContinent.id === "southAmerica" &&
+                  SouthAmericaSingleImg) ||
+                (activeContinent.id === "oceania" && OceaniaSingleImg)
+              }
+              className={classes["continents__continent__image-box__image"]}
+            />
           </div>
-        )}
-      </div>
+
+          {countries.length > 0 && (
+            <div className={classes["continents__continent__countries-box"]}>
+              <CountryLabel />
+              {countries.map((country) => {
+                return (
+                  <CountryLabel
+                    img={country.img}
+                    country={country.country}
+                    key={country.country}
+                    continent={activeContinent.id}
+                  />
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

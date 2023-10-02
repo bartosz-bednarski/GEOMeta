@@ -11,10 +11,13 @@
   display: flex;
   justify-content: center;
   padding: 0vh 0;
-  margin: 0vh auto 5vh auto;
+  margin: 0vh auto 0vh auto;
   width: 100%;
   height: auto;
   cursor: pointer;
+}
+.continents__map-container svg {
+  height: 81vh;
 }
 .continents__continent {
   box-sizing: border-box;
