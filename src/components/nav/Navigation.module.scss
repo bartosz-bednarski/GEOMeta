@@ -6,11 +6,11 @@
   margin-left: 95px;
   &__navigation {
     margin-right: 100px;
-    ul {
+    &__pages {
       li {
         font-family: "Roboto", sans-serif;
         list-style-type: none;
-        font-size: 20px;
+        font-size: 1.2rem;
         color: white;
         display: inline;
         margin: 0 30px;
@@ -19,8 +19,9 @@
         cursor: pointer;
       }
     }
-  }
-  span {
-    width: 250px;
+    &__login-register-container {
+      display: inline-flex;
+      gap: 1rem;
+    }
   }
 }

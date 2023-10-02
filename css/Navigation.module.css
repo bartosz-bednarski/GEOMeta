@@ -8,17 +8,18 @@
 .nav-container__navigation {
   margin-right: 100px;
 }
-.nav-container__navigation ul li {
+.nav-container__navigation__pages li {
   font-family: "Roboto", sans-serif;
   list-style-type: none;
-  font-size: 20px;
+  font-size: 1.2rem;
   color: white;
   display: inline;
   margin: 0 30px;
 }
-.nav-container__navigation ul li:hover {
+.nav-container__navigation__pages li:hover {
   cursor: pointer;
 }
-.nav-container span {
-  width: 250px;
+.nav-container__navigation__login-register-container {
+  display: inline-flex;
+  gap: 1rem;
 }/*# sourceMappingURL=Navigation.module.css.map */

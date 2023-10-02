@@ -33,9 +33,7 @@ const Continents = () => {
     );
     const data = await response.json();
     setCountries(data.data);
-    setTimeout(() => {
-      continentRef.current.scrollIntoView({ behavior: "smooth" });
-    }, 1500);
+    continentRef.current.scrollIntoView({ behavior: "smooth" });
   };
   // useEffect(() => {
   //   activeContinentHandler();
