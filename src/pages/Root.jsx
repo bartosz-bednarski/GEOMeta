@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
 import classes from "../styles/globals/layout.module.scss";
-import HomeNav from "../components/nav/Navigation";
+import Navigation from "../components/nav/Navigation";
+import Footer from "../components/footer/Footer";
 const RootLayout = () => {
   return (
-    <div className={classes["layout"]}>
-      <HomeNav />
-      <Outlet />
-    </div>
+    <>
+      {" "}
+      <div className={classes["layout"]}>
+        <Navigation />
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 };
 

@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(56, 19, 150, 0.65);
+  box-sizing: border-box;
+  padding: 10px 60px;
+  &__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &-icon {
+      width: 40px;
+    }
+  }
+}

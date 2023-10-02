@@ -2,7 +2,7 @@ import { Router, useNavigate } from "react-router-dom";
 import classes from "./Navigation.module.scss";
 import LogoSmall from "../tools/LogoSmall";
 import Button from "../globals/Button";
-const HomeNav = () => {
+const Navigation = () => {
   const navigate = useNavigate();
   return (
     <div className={classes["nav-container"]}>
@@ -28,4 +28,4 @@ const HomeNav = () => {
     </div>
   );
 };
-export default HomeNav;
+export default Navigation;
