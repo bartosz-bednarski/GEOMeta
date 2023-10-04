@@ -132,9 +132,19 @@
 }
 @media only screen and (max-width: 550px) {
   .nav-container {
+    justify-content: center;
+    &__navigation {
+      &__button {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 0;
+      }
+    }
     &__dropdown-menu--shown {
       animation: dropdown-mobile 0.3s ease-in-out;
       width: 100vw;
+      z-index: 1;
     }
   }
 }
