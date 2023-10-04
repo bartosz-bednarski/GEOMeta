@@ -7,12 +7,36 @@
   background: rgba(56, 19, 150, 0.65);
   box-sizing: border-box;
   padding: 10px 60px;
+  gap: 5vw;
   &__contact {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 1rem;
     &-icon {
       width: 40px;
+    }
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .footer {
+    &__contact {
+      &-icon {
+        width: 30px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1vh;
+    font-size: 0.6rem;
+    padding: 10px 20px;
+    &__contact {
+      &-icon {
+        width: 30px;
+      }
     }
   }
 }

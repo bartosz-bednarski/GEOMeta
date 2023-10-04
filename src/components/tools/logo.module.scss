@@ -4,3 +4,8 @@
 .logo--big {
   width: 500px;
 }
+@media only screen and (max-width: 1280px) {
+  .logo--small {
+    width: 200px;
+  }
+}
