@@ -6,6 +6,7 @@ import ForumPage from "./pages/Forum";
 import IslandsPage from "./pages/Islands";
 import OtherPage from "./pages/Other";
 import TrekkersPage from "./pages/Trekkers";
+import CountryPage from "./pages/Country";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "continents",
         element: <ContinentsPage />,
+      },
+      {
+        path: "continents/:countryId",
+        element: <CountryPage />,
       },
       {
         path: "forum",

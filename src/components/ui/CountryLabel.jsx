@@ -67,7 +67,7 @@ const CountryLabel = (props) => {
   }
   if (props.img !== undefined) {
     return (
-      <div className={classes.label}>
+      <div className={classes.label} onClick={props.onClick}>
         <img src={images[props.img]} />
         {props.country}
       </div>
