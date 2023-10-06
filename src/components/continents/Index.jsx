@@ -9,6 +9,7 @@ import AsiaSingleImg from "../../assets/images/continents/continentsSingle/asia2
 import { useEffect, useRef, useState } from "react";
 import WorldMap from "./WorldMap";
 import CountryLabel from "../ui/CountryLabel";
+import { useNavigate } from "react-router-dom";
 
 const Continents = () => {
   const [activeContinent, setActiveContinent] = useState({
@@ -18,7 +19,7 @@ const Continents = () => {
   });
   const [countries, setCountries] = useState([]);
   const continentRef = useRef(null);
-
+  const navigate = useNavigate();
   // let check = activeContinent.id !== "" ? true : false;
 
   const activeContinentHandler = async ({ id: id, continent: continent }) => {
@@ -87,6 +88,7 @@ const Continents = () => {
                       country={country.country}
                       key={country.country}
                       continent={activeContinent.id}
+                      onClick={() => navigate(`${country.country}`)}
                     />
                   );
                 })}
