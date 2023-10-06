@@ -69,18 +69,28 @@ const Continents = () => {
           </div>
 
           {countries.length > 0 && (
-            <div className={classes["continents__continent__countries-box"]}>
-              <CountryLabel />
-              {countries.map((country) => {
-                return (
-                  <CountryLabel
-                    img={country.img}
-                    country={country.country}
-                    key={country.country}
-                    continent={activeContinent.id}
-                  />
-                );
-              })}
+            <div
+              className={classes["continents__continent__countries-container"]}
+            >
+              <div
+                className={
+                  classes[
+                    "continents__continent__countries-container__countries-box"
+                  ]
+                }
+              >
+                <CountryLabel />
+                {countries.map((country) => {
+                  return (
+                    <CountryLabel
+                      img={country.img}
+                      country={country.country}
+                      key={country.country}
+                      continent={activeContinent.id}
+                    />
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>

@@ -85,4 +85,10 @@
 .img-container__stamp__oceania {
   bottom: 160px;
   left: 900px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .img-container__stamp {
+    display: none;
+  }
 }/*# sourceMappingURL=stamp.module.css.map */
