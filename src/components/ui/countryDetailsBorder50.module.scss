@@ -1,0 +1,15 @@
+.box {
+  box-sizing: border-box;
+  height: 140px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 3px solid #44b6c6;
+  border-radius: 50%;
+  &__img {
+    width: 90px;
+    height: 90px;
+  }
+}

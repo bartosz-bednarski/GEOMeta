@@ -1,0 +1,36 @@
+.country-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh 4vw;
+  height: auto;
+  &__details-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    min-height: 83vh;
+    &__flag-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45%;
+      &__flag {
+        border-radius: 15px;
+      }
+    }
+    &__main-info-box {
+      width: 35%;
+      display: flex;
+      gap: 3vh;
+      flex-direction: column;
+      &__country-name {
+        font-size: 3rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      &__row-1-box {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
