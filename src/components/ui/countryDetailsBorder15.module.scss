@@ -1,0 +1,36 @@
+.box {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  border: 3px solid #44b6c6;
+  color: white;
+  border-radius: 15px;
+  padding: 1.5rem 4.5rem;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  &__corner-tr {
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 2rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #44b6c6;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 15px;
+    &__img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+.small {
+  width: 250px;
+}
+.large {
+  width: 100%;
+}

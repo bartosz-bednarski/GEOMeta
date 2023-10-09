@@ -88,7 +88,10 @@ const Continents = () => {
                       country={country.country}
                       key={country.country}
                       continent={activeContinent.id}
-                      onClick={() => navigate(`${country.country}`)}
+                      onClick={() => {
+                        navigate(`${country.country}`);
+                        window.scrollTo(0, 0);
+                      }}
                     />
                   );
                 })}
