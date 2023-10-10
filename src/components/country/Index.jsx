@@ -16,7 +16,8 @@ const Country = (props) => {
           className={classes["country-container__details-container__flag-box"]}
         >
           <img
-            src={polandflag}
+            src={countryFlag}
+            alt={countryFlag}
             className={
               classes["country-container__details-container__flag-box__flag"]
             }

@@ -6,7 +6,7 @@ const CountryDetailsEmblem = (props) => {
     <span className={classes["emblem-box"]}>
       <img
         src={emblemImg}
-        alt="poland"
+        alt={emblemImg}
         className={classes["emblem-box__img"]}
       />
     </span>
