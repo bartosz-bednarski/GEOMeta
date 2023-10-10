@@ -8,6 +8,7 @@
     flex-direction: row;
     gap: 20%;
     min-height: 83vh;
+    justify-content: center;
     &__flag-box {
       display: flex;
       align-items: center;
@@ -22,6 +23,7 @@
       display: flex;
       gap: 3vh;
       flex-direction: column;
+      justify-content: center;
       &__country-name {
         font-size: 3rem;
         font-weight: 600;

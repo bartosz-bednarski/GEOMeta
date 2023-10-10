@@ -7,21 +7,21 @@ import lowTemperature from "../../assets/images/ui/cold-temperature.svg";
 const CountryDetailsBorder50 = (props) => {
   return (
     <span className={classes.box}>
-      {props.type === "highTemperature" && (
+      {props.type === "high" && (
         <img
           className={classes["box__img"]}
           src={highTemperature}
           alt="highTemperature"
         />
       )}
-      {props.type === "lowTemperature" && (
+      {props.type === "low" && (
         <img
           className={classes["box__img"]}
           src={lowTemperature}
           alt="lowTemperature"
         />
       )}
-      {props.type === "mediumTemperature" && (
+      {props.type === "medium" && (
         <img
           className={classes["box__img"]}
           src={mediumTemperature}

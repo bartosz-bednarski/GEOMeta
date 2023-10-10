@@ -1,0 +1,15 @@
+.emblem-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 140px;
+  width: 140px;
+  padding: 0.5rem;
+  border: 3px solid #44b6c6;
+  border-radius: 15px;
+}
+.emblem-box__img {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=countryDetailsEmblem.module.css.map */
