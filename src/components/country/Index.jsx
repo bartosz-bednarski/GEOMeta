@@ -3,7 +3,10 @@ import classes from "./country.module.scss";
 import polandflag from "../../assets/images/country/flags/poland.svg";
 import CountryDetailsBorder15 from "../ui/CountryDetailsBorder15";
 import CountryDetailsBorder50 from "../ui/CountryDetailsBorder50";
-const Country = () => {
+import CountryDetailsEmblem from "../ui/CountryDetailsEmblem";
+const Country = (props) => {
+  const countryFlag = require(`../../assets/images/country/flags/${props.data[0].country_flag}`);
+  console.log(props.data);
   const params = useParams();
   console.log(params.countryId);
   return (
@@ -31,7 +34,7 @@ const Country = () => {
               ]
             }
           >
-            Polska
+            {props.data[0].country_name}
           </span>
           <div
             className={
@@ -41,10 +44,10 @@ const Country = () => {
             }
           >
             <CountryDetailsBorder15 type="capitol" width="small">
-              Warszawa
+              {props.data[0].capitol}
             </CountryDetailsBorder15>
             <CountryDetailsBorder15 type="dolar" width="small">
-              PLN / zł
+              {props.data[0].currency}
             </CountryDetailsBorder15>
           </div>
           <div
@@ -54,15 +57,16 @@ const Country = () => {
               ]
             }
           >
-            <CountryDetailsBorder50 type="mediumTemperature" />
-            <CountryDetailsBorder50 type="rightHand" />
+            <CountryDetailsEmblem emblem={props.data[0].emblem} />
+            <CountryDetailsBorder50 type={props.data[0].temperature} />
+            <CountryDetailsBorder50 type={props.data[0].movement} />
           </div>
 
           <CountryDetailsBorder15 type="website" width="lage">
-            https://www.gov.pl/
+            {props.data[0].website}
           </CountryDetailsBorder15>
           <CountryDetailsBorder15 type="plate" width="large">
-            PLN / zł
+            Plate
           </CountryDetailsBorder15>
         </div>
       </div>

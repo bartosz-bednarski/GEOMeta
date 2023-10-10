@@ -23,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "continents/:countryId",
         element: <CountryPage />,
+        loader: async ({ params }) => {
+          const response = await fetch(
+            `https://geo-meta-rest-api.vercel.app/api/countries/${params.countryId}`,
+            { mode: "cors" }
+          );
+          const data = await response.json();
+          return data;
+        },
       },
       {
         path: "forum",
