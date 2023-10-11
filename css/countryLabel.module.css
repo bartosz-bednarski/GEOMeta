@@ -14,4 +14,8 @@
 .label img {
   width: 35px;
   height: 35px;
+}
+
+.label:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=countryLabel.module.css.map */

@@ -11,6 +11,9 @@
   min-height: 83vh;
   justify-content: center;
 }
+.country-container__details-container__country-name-mobile {
+  display: none;
+}
 .country-container__details-container__flag-box {
   display: flex;
   align-items: center;
@@ -19,6 +22,7 @@
 }
 .country-container__details-container__flag-box__flag {
   border-radius: 15px;
+  width: 100%;
 }
 .country-container__details-container__main-info-box {
   width: 35%;
@@ -35,4 +39,48 @@
 .country-container__details-container__main-info-box__row-1-box {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 1630px) {
+  .country-container__details-container {
+    gap: 10%;
+  }
+  .country-container__details-container__main-info-box {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 1390px) {
+  .country-container__details-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+  }
+  .country-container__details-container__main-info-box {
+    width: 80%;
+  }
+  .country-container__details-container__main-info-box__country-name {
+    display: none;
+  }
+  .country-container__details-container__main-info-box__row-1-box {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .country-container__details-container__country-name-mobile {
+    display: flex;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .country-container__details-container__flag-box {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .country-container__details-container__main-info-box__row-1-box {
+    flex-direction: column;
+    align-items: center;
+  }
 }/*# sourceMappingURL=country.module.css.map */

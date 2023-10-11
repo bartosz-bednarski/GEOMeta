@@ -12,6 +12,13 @@ const Country = (props) => {
   return (
     <div className={classes["country-container"]}>
       <div className={classes["country-container__details-container"]}>
+        <span
+          className={
+            classes["country-container__details-container__country-name-mobile"]
+          }
+        >
+          {props.data[0].country_name}
+        </span>
         <div
           className={classes["country-container__details-container__flag-box"]}
         >
