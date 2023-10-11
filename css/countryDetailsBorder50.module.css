@@ -12,4 +12,8 @@
 .box__img {
   width: 90px;
   height: 90px;
+}
+
+.purple-border {
+  border: 3px solid rgba(131, 39, 188, 0.55);
 }/*# sourceMappingURL=countryDetailsBorder50.module.css.map */
