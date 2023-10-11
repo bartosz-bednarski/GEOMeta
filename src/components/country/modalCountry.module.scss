@@ -1,0 +1,54 @@
+.header-info {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  &__button {
+    border: none;
+    background: none;
+    height: 100px;
+    margin: 0 2rem;
+    svg {
+      height: 70%;
+    }
+  }
+  &__button:hover {
+    cursor: pointer;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+.dots-box {
+  display: inline-flex;
+  justify-content: center;
+  gap: 1rem;
+  &__dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: white;
+  }
+  &__dot--active {
+    background-color: rgba(131, 39, 188);
+  }
+  &__dot--disabled {
+    background-color: white;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .content-row__column {
+    text-align: center;
+  }
+  .content-row__button {
+    margin: 0 0.5rem;
+  }
+}

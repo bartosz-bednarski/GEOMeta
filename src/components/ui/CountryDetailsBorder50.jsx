@@ -6,7 +6,11 @@ import mediumTemperature from "../../assets/images/ui/thermometer.svg";
 import lowTemperature from "../../assets/images/ui/cold-temperature.svg";
 const CountryDetailsBorder50 = (props) => {
   return (
-    <span className={classes.box}>
+    <span
+      className={`${classes.box} ${
+        props.border == "purple" && classes["purple-border"]
+      }`}
+    >
       {props.type === "high" && (
         <img
           className={classes["box__img"]}

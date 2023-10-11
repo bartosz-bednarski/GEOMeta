@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Country from "../components/country/Index";
+import { useEffect } from "react";
 const CountryPage = () => {
   const data = useLoaderData();
   if (data.data.length == 0) {
