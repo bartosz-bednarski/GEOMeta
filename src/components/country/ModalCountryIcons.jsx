@@ -2,7 +2,13 @@ import classes from "./modalCountry.module.scss";
 import ModalLayout from "../ui/ModalLayout";
 import CountryDetailsBorder50 from "../ui/CountryDetailsBorder50";
 import { useEffect, useState } from "react";
-
+const CONTENT_ARRAY = [
+  { type: "low", value: "Niska temperatura" },
+  { type: "medium", value: "Średnia temperatura" },
+  { type: "high", value: "Wysoka temperatura" },
+  { type: "leftHand", value: "Ruch lewostronny" },
+  { type: "rightHand", value: "Ruch prawostronny" },
+];
 const ModalCountryIcons = (props) => {
   useEffect(() => {
     if (window.innerWidth <= 850) {
@@ -52,38 +58,27 @@ const ModalCountryIcons = (props) => {
             />
           </svg>
         </button>
-        {numberOfDots == 2 && (
-          <>
-            {pageNumber == 1 && (
-              <>
-                <div className={classes["content-row__column"]}>
-                  <CountryDetailsBorder50 type="low" border="purple" />
-                  <span>Niska temperatura</span>
-                </div>
-                <div className={classes["content-row__column"]}>
-                  <CountryDetailsBorder50 type="medium" border="purple" />
-                  <span>Średnia temperatura</span>
-                </div>
-                <div className={classes["content-row__column"]}>
-                  <CountryDetailsBorder50 type="high" border="purple" />
-                  <span>Wysoka temperatura</span>
-                </div>
-              </>
-            )}
-            {pageNumber == 2 && (
-              <>
-                <div className={classes["content-row__column"]}>
-                  <CountryDetailsBorder50 type="leftHand" border="purple" />
-                  <span>Ruch lewostronny</span>
-                </div>
-                <div className={classes["content-row__column"]}>
-                  <CountryDetailsBorder50 type="rightHand" border="purple" />
-                  <span>Ruch prawostronny</span>
-                </div>
-              </>
-            )}
-          </>
-        )}
+        {numberOfDots === 2 &&
+          pageNumber === 1 &&
+          CONTENT_ARRAY.slice(0, 3).map((item) => {
+            return (
+              <div className={classes["content-row__column"]}>
+                <CountryDetailsBorder50 type={item.type} border="purple" />
+                <span>{item.value}</span>
+              </div>
+            );
+          })}
+        {numberOfDots === 2 &&
+          pageNumber === 2 &&
+          CONTENT_ARRAY.slice(3).map((item) => {
+            return (
+              <div className={classes["content-row__column"]}>
+                <CountryDetailsBorder50 type={item.type} border="purple" />
+                <span>{item.value}</span>
+              </div>
+            );
+          })}
+
         {numberOfDots == 5 && (
           <>
             {pageNumber == 1 && (

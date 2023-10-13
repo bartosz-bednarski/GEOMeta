@@ -26,8 +26,8 @@ const Navigation = () => {
           classes["nav-container__navigation__login-register-container"]
         }
       >
-        <Button content="Login" />
-        <Button content="Register" />
+        <Button content="Login" onClick={() => navigate("/login")} />
+        <Button content="Register" onClick={() => navigate("/register")} />
       </span>
       {dropdownShown && (
         <nav className={classes["nav-container__dropdown-menu--shown"]}>

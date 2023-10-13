@@ -1,16 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import classes from "../styles/globals/layout.module.scss";
 import Navigation from "../components/nav/Navigation";
 import Footer from "../components/footer/Footer";
 const RootLayout = () => {
+  const location = useLocation();
   return (
     <>
       {" "}
-      <Navigation />
+      {location.pathname !== "/register" && location.pathname !== "/login" && (
+        <Navigation />
+      )}
       <div className={classes["layout"]}>
         <Outlet />
       </div>
-      <Footer />
+      {location.pathname !== "/register" && location.pathname !== "/login" && (
+        <Footer />
+      )}
     </>
   );
 };

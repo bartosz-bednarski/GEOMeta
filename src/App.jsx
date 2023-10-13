@@ -1,4 +1,4 @@
-import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ContinentsPage from "./pages/Continents";
@@ -7,6 +7,8 @@ import IslandsPage from "./pages/Islands";
 import OtherPage from "./pages/Other";
 import TrekkersPage from "./pages/Trekkers";
 import CountryPage from "./pages/Country";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "trekkers",
         element: <TrekkersPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
       },
     ],
   },
