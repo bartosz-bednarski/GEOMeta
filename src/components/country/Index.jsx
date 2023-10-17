@@ -18,6 +18,7 @@ const Country = (props) => {
   }, []);
 
   const countryFlag = require(`../../assets/images/country/flags/${props.data[0].country_flag}`);
+  const plates = require(`../../assets/images/country/plates/${props.data[0].plate}`);
   const params = useParams();
   return (
     <>
@@ -85,12 +86,17 @@ const Country = (props) => {
               <CountryDetailsBorder50 type={props.data[0].temperature} />
               <CountryDetailsBorder50 type={props.data[0].movement} />
             </div>
-
-            <CountryDetailsBorder15 type="website" width="lage">
-              {props.data[0].website}
-            </CountryDetailsBorder15>
+            <a href={props.data[0].website}>
+              <CountryDetailsBorder15 type="website" width="lage">
+                {props.data[0].website}
+              </CountryDetailsBorder15>
+            </a>
             <CountryDetailsBorder15 type="plate" width="large">
-              Plate
+              <img
+                style={{ width: "100%", height: "100%", borderRadius: "15px" }}
+                src={plates}
+                alt="vehicle-plate"
+              />
             </CountryDetailsBorder15>
           </div>
         </div>

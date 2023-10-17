@@ -3,6 +3,9 @@
   flex-direction: column;
   margin: 5vh 4vw;
   height: auto;
+  a {
+    text-decoration: none;
+  }
   &__details-container {
     display: flex;
     flex-direction: row;
