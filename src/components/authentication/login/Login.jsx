@@ -20,33 +20,52 @@ const Login = () => {
     if (login.length > 0) {
       setLoginWarning({ status: false, message: "" });
     }
-    if (password.length > 6) {
+    if (password.length >= 6) {
       setPasswordWarning({ status: false, message: "" });
     }
   }, [login, password]);
   const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(login.length == 0);
-    if (login.length == 0) {
+    console.log(login.length === 0);
+    if (login.length === 0) {
       setLoginWarning({ status: true, message: "Uzupełnij nazwę użytkownika" });
     }
     if (password.length < 6) {
       setPasswordWarning({ status: true, message: "Hasło jest za krótkie" });
     }
-    const response = await fetch(
-      "https://geo-meta-rest-api.vercel.app/api/users/login",
-      {
-        method: "POST",
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username: login, password: password }),
+    if (login.length > 0 && password.length >= 6) {
+      const response = await fetch(
+        "https://geo-meta-rest-api.vercel.app/api/users/login",
+        {
+          method: "POST",
+          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: "same-origin", // include, *same-origin, omit
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: login, password: password }),
+        }
+      );
+      const data = await response.json();
+      if (data.message === "Login or password too short") {
+        setLoginWarning({
+          status: true,
+          message: "Uzupełnij nazwę użytkownika",
+        });
+        setPasswordWarning({ status: true, message: "Hasło jest za krótkie" });
       }
-    );
-    const data = response;
-    console.log(data);
+      if (data.message === "Wrong username") {
+        setLoginWarning({ status: true, message: "Zła nazwa użytkownika" });
+      }
+      if (data.message === "Wrong password") {
+        setPasswordWarning({ status: true, message: "Złe hasło" });
+        setPassword("");
+      }
+      if (data.message === "loggedIn") {
+        navigate("/");
+      }
+      console.log(data);
+    }
   };
   return (
     <div className={classes["authentication-container"]}>
