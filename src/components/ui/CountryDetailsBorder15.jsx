@@ -8,6 +8,7 @@ const CountryDetailsBorder15 = (props) => {
       className={`${classes.box} ${props.width === "small" && classes.small} ${
         props.width === "large" && classes.large
       }`}
+      style={props.type === "plate" ? { padding: 0, height: "290px" } : {}}
     >
       {props.children}
       <span className={classes["box__corner-tr"]}>
