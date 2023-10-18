@@ -2,51 +2,54 @@ import { Router, useNavigate } from "react-router-dom";
 import classes from "./Navigation.module.scss";
 import LogoSmall from "../tools/LogoSmall";
 import Button from "../globals/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authenticationActions } from "../../redux/authentication-slice";
 const Navigation = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [dropdownShown, setDropdownShown] = useState(false);
-
+  const loggedIn = useSelector((state) => state.authentication.loggedIn);
+  const userName = useSelector((state) => state.authentication.userName);
+  const [userListShown, setUserListShown] = useState(false);
+  const logoutHandler = () => {
+    dispatch(authenticationActions.setLoggedOut());
+    setUserListShown(false);
+  };
+  const userIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+      <path
+        style={{ fill: "white" }}
+        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+      />
+    </svg>
+  );
   return (
     <div className={classes["nav-container"]}>
-      <LogoSmall />
-      <nav className={classes["nav-container__navigation"]}>
-        <ul className={classes["nav-container__navigation__pages"]}>
-          <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => navigate("/continents")}>Kontynenty</li>
-          <li onClick={() => navigate("/islands")}>Wyspy</li>
-          <li onClick={() => navigate("/trekkers")}>Trekkery</li>
-          <li onClick={() => navigate("/others")}>Inne</li>
-          <li onClick={() => navigate("/forum")}>Forum</li>
-        </ul>
-      </nav>
-
-      <span
-        className={
-          classes["nav-container__navigation__login-register-container"]
-        }
-      >
-        <Button content="Login" onClick={() => navigate("/login")} />
-        <Button content="Register" onClick={() => navigate("/register")} />
-      </span>
+      <div className={classes["nav-container__logo-box"]}>
+        <button
+          className={classes["nav-container__logo-box__button"]}
+          onClick={() => {
+            setUserListShown(false);
+            setDropdownShown(!dropdownShown);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            className={
+              classes["nav-container__logo-box__button-hamburger-icon"]
+            }
+          >
+            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+          </svg>
+        </button>
+        <LogoSmall />
+      </div>
       {dropdownShown && (
         <nav className={classes["nav-container__dropdown-menu--shown"]}>
           <ul className={classes["nav-container__dropdown-menu--shown__pages"]}>
-            <li
-              style={{ "padding-top": "1rem" }}
-              onClick={() => {
-                setDropdownShown(false);
-              }}
-            >
-              <svg
-                style={{ fill: "white" }}
-                xmlns="http://www.w3.org/2000/svg"
-                height="1em"
-                viewBox="0 0 384 512"
-              >
-                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-              </svg>
-            </li>
             <li
               onClick={() => {
                 navigate("/");
@@ -95,41 +98,94 @@ const Navigation = () => {
             >
               Forum
             </li>
-            <li
-              onClick={() => {
-                navigate("/forum");
-                setDropdownShown(false);
-              }}
-            >
-              Login
-            </li>
-            <li
-              style={{ "padding-bottom": "1rem" }}
-              onClick={() => navigate("/forum")}
-            >
-              Register
-            </li>
           </ul>
         </nav>
       )}
+      <nav className={classes["nav-container__navigation"]}>
+        <ul className={classes["nav-container__navigation__pages"]}>
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/continents")}>Kontynenty</li>
+          <li onClick={() => navigate("/islands")}>Wyspy</li>
+          <li onClick={() => navigate("/trekkers")}>Trekkery</li>
+          <li onClick={() => navigate("/others")}>Inne</li>
+          <li onClick={() => navigate("/forum")}>Forum</li>
+        </ul>
+      </nav>
 
-      <button
-        className={classes["nav-container__navigation__button"]}
-        onClick={() => {
-          setDropdownShown(true);
-        }}
+      <span
+        className={
+          classes["nav-container__navigation__login-register-container"]
+        }
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          className={
-            classes["nav-container__navigation__button-hamburger-icon"]
-          }
-        >
-          <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-        </svg>
-      </button>
+        <Button
+          content={loggedIn ? userName.slice(0, 2) : userIcon}
+          style={{
+            padding: 0,
+            borderRadius: "50%",
+            height: "50px",
+            width: "50px",
+          }}
+          onClick={() => {
+            setDropdownShown(false);
+            setUserListShown(!userListShown);
+          }}
+        />
+        {userListShown && (
+          <div
+            className={
+              classes[
+                "nav-container__navigation__login-register-container__user-container"
+              ]
+            }
+          >
+            {loggedIn && (
+              <div
+                className={
+                  classes[
+                    "nav-container__navigation__login-register-container__user-container__header-container"
+                  ]
+                }
+              >
+                <Button
+                  content={userName.slice(0, 2)}
+                  style={{
+                    padding: 0,
+                    borderRadius: "50%",
+                    height: "50px",
+                    width: "50px",
+                  }}
+                />
+
+                <div
+                  className={
+                    classes[
+                      "nav-container__navigation__login-register-container__user-container__header-container__right"
+                    ]
+                  }
+                >
+                  <span>{userName}</span>
+                  <span>email</span>
+                </div>
+              </div>
+            )}
+
+            <ul>
+              {!loggedIn && (
+                <>
+                  <li onClick={() => navigate("/login")}>Zaloguj się</li>
+                  <li onClick={() => navigate("/register")}>Zarejestruj się</li>
+                </>
+              )}
+              {loggedIn && (
+                <>
+                  <li>Profil</li>
+                  <li onClick={logoutHandler}>Wyloguj się</li>
+                </>
+              )}
+            </ul>
+          </div>
+        )}
+      </span>
     </div>
   );
 };
