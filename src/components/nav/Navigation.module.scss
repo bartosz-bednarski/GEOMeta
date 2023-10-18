@@ -5,6 +5,12 @@
   justify-content: space-between;
   background: rgba(56, 19, 150, 0.65);
   padding: 1rem 3rem;
+  &__logo-box {
+    display: flex;
+    &__button {
+      display: none;
+    }
+  }
   &__navigation {
     margin-right: 100px;
     &__pages {
@@ -23,51 +29,63 @@
     &__login-register-container {
       display: inline-flex;
       gap: 1rem;
-    }
-    &__button {
-      display: none;
+      &__user-container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 108px;
+        right: 0px;
+        width: 300px;
+        background: #7d65bb;
+        border-bottom-left-radius: 15px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+
+        &__header-container {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          align-items: center;
+          padding: 1rem 2rem;
+          border-bottom: 1px solid #163b40b3;
+          &__right {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        ul {
+          font-weight: 500;
+
+          list-style-type: none;
+          li {
+            padding: 0.5rem 0;
+            background-image: linear-gradient(white, white);
+            background-size: 0 100%;
+            background-repeat: no-repeat;
+            transition: 0.4s;
+            padding: 1rem 2rem;
+          }
+          li:last-child {
+            border-bottom-left-radius: 15px;
+          }
+          li:hover {
+            color: #7d65bb;
+            background-size: 100% 100%;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   &__dropdown-menu--shown {
+    border-bottom-right-radius: 15px;
     display: none;
     opacity: 0;
-  }
-}
-// @media only screen and (min-width: 1540px) {
-//   .nav-container {
-//     &__navigation {
-//       &-hamburger-icon {
-//         display: none;
-//       }
-//     }
-//   }
-// }
-@keyframes dropdown {
-  from {
-    width: 0;
-  }
-  to {
-    width: 200px;
-  }
-}
-@keyframes dropdown-mobile {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100vw;
   }
 }
 @media only screen and (max-width: 1540px) {
   .nav-container {
     position: relative;
-    &__navigation {
-      &__pages {
-        display: none;
-      }
-      &__login-register-container {
-        display: none;
-      }
+    &__logo-box {
       &__button {
         background-color: transparent;
         border: none;
@@ -75,45 +93,53 @@
         &-hamburger-icon {
           width: 30px;
           height: 30px;
+          fill: white;
         }
       }
       &__button:hover {
         cursor: pointer;
       }
     }
+    &__navigation {
+      &__pages {
+        display: none;
+      }
+      &__login-register-container {
+        display: block;
+        &__user-container {
+          top: 93px;
+        }
+      }
+    }
     &__dropdown-menu--shown {
       opacity: 1;
-      animation: dropdown 0.3s ease-in-out;
-
       display: flex;
       flex-direction: column;
       position: absolute;
-
-      top: 0px;
-      right: 0px;
+      box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.5);
+      top: 93px;
+      left: 0;
       &__pages {
         display: block;
         list-style-type: none;
 
         li {
-          padding: 0.5rem 1.7rem 0.5rem 6rem;
-          text-align: right;
-          background: #239bd0;
-          background-image: linear-gradient(
-            rgba(9, 200, 226, 0.7),
-            rgba(16, 105, 116, 0.7)
-          );
+          padding: 0.5rem 8.7rem 0.5rem 3rem;
+          text-align: left;
+          background: #7d65bb;
+          background-image: linear-gradient(white, white);
           background-size: 0 100%;
           background-repeat: no-repeat;
           transition: 0.4s;
         }
+        li:last-child {
+          border-bottom-right-radius: 15px;
+        }
         li:hover {
+          color: #7d65bb;
           background-size: 100% 100%;
           cursor: pointer;
         }
-      }
-      &__login-register-container {
-        display: block;
       }
     }
     &__button {
@@ -132,21 +158,31 @@
 }
 @media only screen and (max-width: 650px) {
   .nav-container {
-    justify-content: center;
+    justify-content: space-between;
+    padding: 1rem;
     &__navigation {
       &__button {
         position: absolute;
         top: 30px;
-        right: 30px;
+        left: 30px;
         z-index: 0;
+      }
+      &__login-register-container {
+        button {
+          width: 40px !important;
+          height: 40px !important;
+        }
       }
     }
     &__dropdown-menu--shown {
-      animation: dropdown-mobile 0.3s ease-in-out;
       width: 100vw;
       z-index: 1;
       &__pages {
         background: #239bd0;
+        li {
+          text-align: left;
+          padding-left: 1rem;
+        }
       }
     }
   }

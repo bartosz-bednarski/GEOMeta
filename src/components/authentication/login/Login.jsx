@@ -4,6 +4,8 @@ import World from "../../../assets/images/home/world.png";
 import Button from "../../globals/Button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { authenticationActions } from "../../../redux/authentication-slice";
 const Login = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
@@ -16,6 +18,7 @@ const Login = () => {
     status: false,
     message: "",
   });
+  const dispatch = useDispatch();
   useEffect(() => {
     if (login.length > 0) {
       setLoginWarning({ status: false, message: "" });
@@ -62,6 +65,9 @@ const Login = () => {
         setPassword("");
       }
       if (data.message === "loggedIn") {
+        dispatch(
+          authenticationActions.setLoggedIn({ userName: data.body.username })
+        );
         navigate("/");
       }
       console.log(data);
