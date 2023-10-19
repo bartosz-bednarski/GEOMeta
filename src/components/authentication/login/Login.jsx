@@ -65,12 +65,20 @@ const Login = () => {
         setPassword("");
       }
       if (data.message === "loggedIn") {
+        localStorage.setItem("username", data.body.username);
+        localStorage.setItem(
+          "iconBackgroundColor",
+          data.body.iconBackgroundColor
+        );
+        localStorage.setItem("email", data.body.email);
         dispatch(
-          authenticationActions.setLoggedIn({ userName: data.body.username })
+          authenticationActions.setLoggedIn({
+            userName: data.body.username,
+            iconBackgroundColor: data.body.iconBackgroundColor,
+          })
         );
         navigate("/");
       }
-      console.log(data);
     }
   };
   return (
