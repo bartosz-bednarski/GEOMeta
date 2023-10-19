@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const authenticationInitialState = {
   loggedIn: false,
   userName: "",
+  profileIconBackgroundColor: "#09c8e2b3",
 };
 
 const authentication = createSlice({
@@ -11,6 +12,7 @@ const authentication = createSlice({
     setLoggedIn(state, action) {
       state.loggedIn = true;
       state.userName = action.payload.userName;
+      state.profileIconBackgroundColor = action.payload.iconBackgroundColor;
     },
     setLoggedOut(state) {
       state.loggedIn = false;
@@ -18,6 +20,6 @@ const authentication = createSlice({
     },
   },
 });
-
+//UNUSED !!!
 export const authenticationActions = authentication.actions;
 export default authentication.reducer;

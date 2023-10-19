@@ -9,11 +9,20 @@ const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dropdownShown, setDropdownShown] = useState(false);
-  const loggedIn = useSelector((state) => state.authentication.loggedIn);
-  const userName = useSelector((state) => state.authentication.userName);
+  // const loggedIn = useSelector((state) => state.authentication.loggedIn);
+  // const userName = useSelector((state) => state.authentication.userName);
+  const username = localStorage.getItem("username");
+  const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
+  const email = localStorage.getItem("email");
+  // const iconBackgroundColor = useSelector(
+  //   (state) => state.authentication.profileIconBackgroundColor
+  // );
   const [userListShown, setUserListShown] = useState(false);
   const logoutHandler = () => {
     dispatch(authenticationActions.setLoggedOut());
+    localStorage.removeItem("username");
+    localStorage.removeItem("iconBackgroundColor");
+    localStorage.removeItem("email");
     setUserListShown(false);
   };
   const userIcon = (
@@ -118,12 +127,15 @@ const Navigation = () => {
         }
       >
         <Button
-          content={loggedIn ? userName.slice(0, 2) : userIcon}
+          content={username ? username.slice(0, 2) : userIcon}
           style={{
             padding: 0,
             borderRadius: "50%",
             height: "50px",
             width: "50px",
+            backgroundColor: iconBackgroundColor
+              ? iconBackgroundColor
+              : "#09c8e2b3",
           }}
           onClick={() => {
             setDropdownShown(false);
@@ -138,7 +150,7 @@ const Navigation = () => {
               ]
             }
           >
-            {loggedIn && (
+            {username && (
               <div
                 className={
                   classes[
@@ -147,12 +159,15 @@ const Navigation = () => {
                 }
               >
                 <Button
-                  content={userName.slice(0, 2)}
+                  content={username.slice(0, 2)}
                   style={{
                     padding: 0,
                     borderRadius: "50%",
                     height: "50px",
                     width: "50px",
+                    backgroundColor: iconBackgroundColor
+                      ? iconBackgroundColor
+                      : "#09c8e2b3",
                   }}
                 />
 
@@ -163,20 +178,20 @@ const Navigation = () => {
                     ]
                   }
                 >
-                  <span>{userName}</span>
-                  <span>email</span>
+                  <span>{username}</span>
+                  <span>{email}</span>
                 </div>
               </div>
             )}
 
             <ul>
-              {!loggedIn && (
+              {!username && (
                 <>
                   <li onClick={() => navigate("/login")}>Zaloguj się</li>
                   <li onClick={() => navigate("/register")}>Zarejestruj się</li>
                 </>
               )}
-              {loggedIn && (
+              {username && (
                 <>
                   <li>Profil</li>
                   <li onClick={logoutHandler}>Wyloguj się</li>
