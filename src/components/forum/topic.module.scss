@@ -1,0 +1,128 @@
+.topic-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background-color: #7d65bb;
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  &__user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 15%;
+    gap: 1rem;
+    justify-content: flex-start;
+    &__icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2baad7;
+      width: 60px;
+      height: 60px;
+      font-size: 1.3rem;
+      border-radius: 50%;
+      svg {
+        fill: white;
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__user-box {
+      box-sizing: border-box;
+      padding: 0.3rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.4rem;
+      &__username {
+        font-size: 1.2rem;
+      }
+      &__date {
+        font-size: 0.7rem;
+        color: #bcbcbc;
+      }
+    }
+  }
+
+  &__question-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 2rem;
+    width: 60%;
+    &__question {
+      font-size: 1.5rem;
+    }
+  }
+  &__answers-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    padding: 0 1rem;
+    &__icons-box {
+      position: relative;
+      display: inline-flex;
+      width: 130px;
+      &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &__icon:nth-of-type(1) {
+        z-index: 3;
+      }
+      &__icon:nth-of-type(2) {
+        top: 0;
+        left: 40px;
+        position: absolute;
+        z-index: 2;
+        background-color: blue;
+      }
+      &__icon:nth-of-type(3) {
+        top: 0;
+        left: 80px;
+        position: absolute;
+        z-index: 1;
+        background-color: pink;
+      }
+    }
+    &__number {
+      font-size: 1.2rem;
+    }
+    &__last-post-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+      &__data {
+        font-size: 0.9rem;
+        color: #bcbcbc;
+      }
+    }
+  }
+  &__input-container {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem 0rem 0.2rem 1rem;
+    gap: 2rem;
+    &__input {
+      background-color: rgba(43, 170, 215, 0.82);
+      outline: none;
+      border-radius: 30px;
+      border: none;
+      padding: 0.5rem 1rem;
+      width: 80%;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+}

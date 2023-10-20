@@ -23,7 +23,12 @@ const Navigation = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("iconBackgroundColor");
     localStorage.removeItem("email");
+    localStorage.removeItem("iconmodaldisplay");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("usernameShort");
+    localStorage.removeItem("userId");
     setUserListShown(false);
+    navigate(0);
   };
   const userIcon = (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">

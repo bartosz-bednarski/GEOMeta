@@ -4,6 +4,9 @@
   margin: 5vh 4vw;
   height: auto;
 }
+.country-container a {
+  text-decoration: none;
+}
 .country-container__details-container {
   display: flex;
   flex-direction: row;
