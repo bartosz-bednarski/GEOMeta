@@ -40,6 +40,9 @@
   flex-direction: column;
   gap: 1rem;
 }
+.authentication-container__right-box__form__warning {
+  color: #ff2f2f;
+}
 .authentication-container__right-box__form input {
   box-sizing: border-box;
   outline: none;

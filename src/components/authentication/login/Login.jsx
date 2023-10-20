@@ -38,7 +38,8 @@ const Login = () => {
     }
     if (login.length > 0 && password.length >= 6) {
       const response = await fetch(
-        "https://geo-meta-rest-api.vercel.app/api/users/login",
+        // "https://geo-meta-rest-api.vercel.app/api/users/login"
+        "http://localhost:9001/api/users/login",
         {
           method: "POST",
           cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -71,6 +72,8 @@ const Login = () => {
           data.body.iconBackgroundColor
         );
         localStorage.setItem("email", data.body.email);
+        localStorage.setItem("accessToken", data.body.accessToken);
+        localStorage.setItem("usernameShort", data.body.usernameShort);
         dispatch(
           authenticationActions.setLoggedIn({
             userName: data.body.username,
