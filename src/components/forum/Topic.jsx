@@ -31,33 +31,51 @@ const Topic = (props) => {
       </div>
       <div className={classes["topic-container__answers-container"]}>
         <div
-          className={classes["topic-container__answers-container__icons-box"]}
+          className={classes["topic-container__answers-container__answers-box"]}
         >
-          <span
+          <div
             className={
-              classes["topic-container__answers-container__icons-box__icon"]
+              classes[
+                "topic-container__answers-container__answers-box__icons-box"
+              ]
             }
           >
-            BB
-          </span>
+            <span
+              className={
+                classes[
+                  "topic-container__answers-container__answers-box__icons-box__icon"
+                ]
+              }
+            >
+              BB
+            </span>
+            <span
+              className={
+                classes[
+                  "topic-container__answers-container__answers-box__icons-box__icon"
+                ]
+              }
+            >
+              BB
+            </span>
+            <span
+              className={
+                classes[
+                  "topic-container__answers-container__answers-box__icons-box__icon"
+                ]
+              }
+            >
+              BB
+            </span>
+          </div>
           <span
             className={
-              classes["topic-container__answers-container__icons-box__icon"]
+              classes["topic-container__answers-container__answers-box__number"]
             }
           >
-            BB
-          </span>
-          <span
-            className={
-              classes["topic-container__answers-container__icons-box__icon"]
-            }
-          >
-            BB
+            +40
           </span>
         </div>
-        <span className={classes["topic-container__answers-container__number"]}>
-          +40
-        </span>
         <div
           className={
             classes["topic-container__answers-container__last-post-box"]

@@ -153,6 +153,9 @@
     justify-content: space-between;
     padding: 1rem;
   }
+  .nav-container__navigation {
+    margin: 0;
+  }
   .nav-container__navigation__button {
     position: absolute;
     top: 30px;

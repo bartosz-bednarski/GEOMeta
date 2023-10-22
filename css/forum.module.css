@@ -5,4 +5,10 @@
   flex-direction: column;
   padding: 10vh 15vw;
   gap: 5vh;
+}
+
+@media only screen and (max-width: 965px) {
+  .forum-container {
+    padding: 5vh 5vw;
+  }
 }/*# sourceMappingURL=forum.module.css.map */
