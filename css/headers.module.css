@@ -15,4 +15,10 @@
 }
 .headers-container__header:nth-of-type(3) {
   width: 25%;
+}
+
+@media only screen and (max-width: 1700px) {
+  .headers-container {
+    display: none;
+  }
 }/*# sourceMappingURL=headers.module.css.map */

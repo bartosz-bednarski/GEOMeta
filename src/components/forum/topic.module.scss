@@ -61,41 +61,47 @@
     flex-direction: row;
     align-items: center;
     width: 25%;
-    padding: 0 1rem;
-    &__icons-box {
-      position: relative;
-      display: inline-flex;
-      width: 130px;
-      &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background-color: red;
-        border-radius: 50%;
+    padding: 0 0 0 1rem;
+    &__answers-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &__icons-box {
+        position: relative;
+        display: inline-flex;
+        width: 130px;
+        &__icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          background-color: red;
+          border-radius: 50%;
+        }
+        &__icon:nth-of-type(1) {
+          z-index: 3;
+        }
+        &__icon:nth-of-type(2) {
+          top: 0;
+          left: 40px;
+          position: absolute;
+          z-index: 2;
+          background-color: blue;
+        }
+        &__icon:nth-of-type(3) {
+          top: 0;
+          left: 80px;
+          position: absolute;
+          z-index: 1;
+          background-color: pink;
+        }
       }
-      &__icon:nth-of-type(1) {
-        z-index: 3;
-      }
-      &__icon:nth-of-type(2) {
-        top: 0;
-        left: 40px;
-        position: absolute;
-        z-index: 2;
-        background-color: blue;
-      }
-      &__icon:nth-of-type(3) {
-        top: 0;
-        left: 80px;
-        position: absolute;
-        z-index: 1;
-        background-color: pink;
+      &__number {
+        font-size: 1.2rem;
       }
     }
-    &__number {
-      font-size: 1.2rem;
-    }
+
     &__last-post-box {
       display: flex;
       flex-direction: column;
@@ -123,6 +129,70 @@
       width: 80%;
       color: white;
       font-size: 1rem;
+    }
+  }
+}
+@media only screen and (max-width: 1700px) {
+  .topic-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    &__user-container {
+      width: 100%;
+    }
+    &__question-box {
+      width: 100%;
+      margin-left: 0;
+    }
+    &__answers-container {
+      width: 100%;
+      padding: 0;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 2rem;
+      &__last-post-box {
+        margin-left: 0;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+    &__input-container {
+      box-sizing: border-box;
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      &__input {
+        box-sizing: border-box;
+        width: 100%;
+      }
+      button {
+        width: 200px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .topic-container {
+    &__answers-container {
+      &__answers-box {
+        &__icons-box {
+          width: 100px;
+          &__icon {
+            width: 35px;
+            height: 35px;
+          }
+          &__icon:nth-of-type(1) {
+            z-index: 3;
+          }
+          &__icon:nth-of-type(2) {
+            left: 30px;
+          }
+          &__icon:nth-of-type(3) {
+            left: 60px;
+          }
+        }
+      }
     }
   }
 }
