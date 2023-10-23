@@ -1,0 +1,67 @@
+.input-container {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+.input-container__input {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #7d65bb;
+  outline: none;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 15px;
+  height: 80px;
+  color: white;
+  font-family: Poppins;
+  resize: none;
+}
+.input-container ::-webkit-scrollbar {
+  width: 7px;
+}
+.input-container ::-webkit-scrollbar-track {
+  margin: 7px;
+  background: transparent;
+}
+.input-container ::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+.input-container ::-webkit-scrollbar-track:hover {
+  cursor: pointer;
+}
+.input-container__username-box {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-container__username-box svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+.input-container__button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: transparent;
+  border: 0;
+  width: 30px;
+  height: 30px;
+}
+.input-container__button svg {
+  fill: #2baad7;
+  width: 30px;
+  height: 30px;
+}
+.input-container__button:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=addComment.module.css.map */

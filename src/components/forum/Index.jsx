@@ -1,10 +1,12 @@
 import AddTopic from "./AddTopic";
 import Headers from "./Headers";
-import Topic from "./Topic";
+import TopicBox from "./TopicBox";
 import classes from "./forum.module.scss";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const Forum = () => {
   const accessToken = localStorage.getItem("accessToken");
+  const navigate = useNavigate();
   const [topics, setTopics] = useState("");
   const [temporaryUpdateHelper, setTemporaryUpdateHelper] = useState(false);
   useEffect(() => {
@@ -23,6 +25,7 @@ const Forum = () => {
         }
       );
       const data = await response.json();
+      console.log(data);
       setTopics(data);
     };
     getTopics();
@@ -38,8 +41,36 @@ const Forum = () => {
 
       <Headers />
       {topics !== "" &&
-        topics.data.toReversed().map((topic) => {
-          return <Topic data={topic} key={topic._id} />;
+        topics.data.toReversed().map((item) => {
+          const {
+            date,
+            dateString,
+            timeString,
+            topic,
+            topic_id,
+            username,
+            usernameShort,
+          } = item;
+          console.log(item);
+          return (
+            <TopicBox
+              data={item}
+              key={item.topic_id}
+              onClick={() =>
+                navigate(item.topic_id, {
+                  state: {
+                    date: date,
+                    dateString: dateString,
+                    timeString: timeString,
+                    topic: topic,
+                    topic_id: topic_id,
+                    username: username,
+                    usernameShort: usernameShort,
+                  },
+                })
+              }
+            />
+          );
         })}
     </div>
   );

@@ -1,0 +1,20 @@
+.topic-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 15vw;
+  gap: 3rem;
+  &__comments-section {
+    display: flex;
+    flex-direction: column;
+    div[aria-label="comment-container"]:nth-child(even) {
+      span {
+        background-color: #a947f6;
+      }
+    }
+    // div[aria-label="comment-container"]
+    //   span[aria-label="comment-content"]:nth-child(even) {
+    //   background-color: red;
+    // }
+  }
+}
