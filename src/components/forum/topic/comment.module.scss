@@ -1,0 +1,48 @@
+.comment-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: flex-end;
+  &__username-box {
+    display: flex;
+    margin-left: 50px;
+  }
+  &__comment-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    &__username {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+      border-radius: 50%;
+      width: 42px;
+      height: 40px;
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+    }
+    &__comment {
+      border-radius: 0rem 30px;
+      width: 100%;
+      background-color: #3c06c9;
+      padding: 1rem 1rem;
+    }
+  }
+  &__date-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    color: #bcbcbc;
+    font-size: 0.7rem;
+    gap: 1rem;
+  }
+}
