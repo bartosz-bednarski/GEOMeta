@@ -34,7 +34,6 @@ const AddTopic = (props) => {
         }
       );
       const data = await response.json();
-      console.log;
       setTopicValue("");
       props.onUpdate();
     }
