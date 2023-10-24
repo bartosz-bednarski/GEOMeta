@@ -9,14 +9,10 @@ const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dropdownShown, setDropdownShown] = useState(false);
-  // const loggedIn = useSelector((state) => state.authentication.loggedIn);
-  // const userName = useSelector((state) => state.authentication.userName);
   const username = localStorage.getItem("username");
   const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
   const email = localStorage.getItem("email");
-  // const iconBackgroundColor = useSelector(
-  //   (state) => state.authentication.profileIconBackgroundColor
-  // );
+  const usernameShort = localStorage.getItem("usernameShort");
   const [userListShown, setUserListShown] = useState(false);
   const logoutHandler = () => {
     dispatch(authenticationActions.setLoggedOut());
@@ -132,7 +128,7 @@ const Navigation = () => {
         }
       >
         <Button
-          content={username ? username.slice(0, 2) : userIcon}
+          content={usernameShort ? usernameShort : userIcon}
           style={{
             padding: 0,
             borderRadius: "50%",
