@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+<br />
+<div align="center">
+  <a href="https://geo-meta.vercel.app/">
+    <img src="/public/readme/01.PNG" alt="Logo" width="100%" height="100%">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <p align="center">
+  <br />
+    <br/>
+    <br/>
+    <a href="https://geo-meta.vercel.app/"><strong>Explore the website</strong></a>
+    <br />
+    
+  </p>
+</div>
 
-## Available Scripts
+<!-- ABOUT THE PROJEC -->
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+<img src="/public/readme/02.PNG" alt="Logo" width="100%" height="100%">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+GeoMeta is an online guide for the browser game Geoguesrr.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+★ Website is built with two layers:
+ - Frontend written in React.
+ - Backend in the form of a REST API written in Express.<br/>
+ 
+★ React-router-dom was used to navigate beetwen different pages.<br/>
+★ Sass was used for styling.<br/>
+★ Express was used to built rest-api to handle authentication/authorization and query data from databases.<br/>
+★ MongoDB was used to store forum data.<br/>
+★ PostgreSQL was used to store more related data like users, coutries etc.<br/>
+★ The website includes the following tabs:<br/>
+ - Home - general information about the website and its content, continents <br/>
+ - Continents - a world map with the ability to select a specific continent and view the countries it comprises. Selecting a specific country redirects to a dedicated page containing information about it, which will be expanded through tips for players of the GeoGuessr game.<br/>
+ - Forum - a place where logged-in users can create topics with questions and engage in discussions. The option to add responses to topics is also available for non-logged-in users.
+## Used Technologies
 
-### `npm test`
+- React.js
+- React Router DOM
+- Sass
+- Express.js
+- MongoDB
+- PostgreSQL
+- JavaScript
+- CSS
+- HTML
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Desktop view
 
-### `npm run build`
+<img src="/public/readme/03.PNG" alt="Logo" width="100%" height="100%">
+<img src="/public/readme/05.PNG" alt="Logo" width="100%" height="100%">
+<img src="/public/readme/04.PNG" alt="Logo" width="100%" height="100%">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Mobile view
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="/public/readme/01_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/public/readme/02_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/public/readme/03_mobile.png" alt="Logo" width="30%" height="auto">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- CONTACT -->
 
-### `npm run eject`
+## Contact
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Bartosz Bednarski
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- e-mail: bartosz.bednarski97@gmail.com
+- linkedIn: https://www.linkedin.com/in/bartosz-bednarski-050196234/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/bartosz-bednarski/GEOMeta](https://github.com/bartosz-bednarski/GEOMeta)
+Rest-api Link: [https://github.com/bartosz-bednarski/GEOMeta-Rest-API](https://github.com/bartosz-bednarski/GEOMeta-Rest-API)
