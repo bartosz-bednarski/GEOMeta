@@ -45,4 +45,15 @@
   color: #bcbcbc;
   font-size: 0.7rem;
   gap: 1rem;
+}
+
+@media only screen and (max-width: 550px) {
+  .comment-container__comment-box__username {
+    width: 30px;
+    height: 30px;
+  }
+  .comment-container__comment-box__username svg {
+    width: 15px;
+    height: 15px;
+  }
 }/*# sourceMappingURL=comment.module.css.map */

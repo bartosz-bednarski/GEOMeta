@@ -10,9 +10,7 @@ const AddComment = (props) => {
   const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
   const usernameShort = localStorage.getItem("usernameShort");
   const accessToken = localStorage.getItem("accessToken");
-  const navigate = useNavigate();
   const [inputText, setInputText] = useState("");
-  console.log(props.data);
   const submitHandler = async (event) => {
     event.preventDefault();
     const url = accessToken
@@ -40,9 +38,7 @@ const AddComment = (props) => {
       const data = await response.json();
       setInputText("");
       props.onCommentsUpdate();
-      // navigate(".", { replace: true });
     }
-    console.log(inputText);
   };
   return (
     <form className={classes["input-container"]} onSubmit={submitHandler}>

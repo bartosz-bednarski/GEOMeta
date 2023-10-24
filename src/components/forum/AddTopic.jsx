@@ -9,7 +9,7 @@ const anonymous = (
 const AddTopic = (props) => {
   const [topicValue, setTopicValue] = useState("");
   const username = localStorage.getItem("username");
-  const usernameColor = localStorage.getItem("iconBackgroundColor");
+  const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
   const accessToken = localStorage.getItem("accessToken");
   const usernameShort = localStorage.getItem("usernameShort");
   const submitHandler = async (event) => {
@@ -29,6 +29,7 @@ const AddTopic = (props) => {
           body: JSON.stringify({
             usernameShort: usernameShort,
             topic: topicValue,
+            iconBackgroundColor: iconBackgroundColor,
           }),
         }
       );
@@ -42,9 +43,9 @@ const AddTopic = (props) => {
       <div className={classes["topic-container__user-container"]}>
         <div
           className={classes["topic-container__user-container__icon-box"]}
-          style={{ backgroundColor: usernameColor }}
+          style={{ backgroundColor: iconBackgroundColor }}
         >
-          {username ? username.slice(0, 2) : anonymous}
+          {usernameShort}
         </div>
         <div className={classes["topic-container__user-container__user-box"]}>
           <span
