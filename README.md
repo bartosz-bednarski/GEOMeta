@@ -66,5 +66,5 @@ Bartosz Bednarski
 - e-mail: bartosz.bednarski97@gmail.com
 - linkedIn: https://www.linkedin.com/in/bartosz-bednarski-050196234/
 
-Project Link: [https://github.com/bartosz-bednarski/GEOMeta](https://github.com/bartosz-bednarski/GEOMeta)
+Project Link: [https://github.com/bartosz-bednarski/GEOMeta](https://github.com/bartosz-bednarski/GEOMeta)<br/>
 Rest-api Link: [https://github.com/bartosz-bednarski/GEOMeta-Rest-API](https://github.com/bartosz-bednarski/GEOMeta-Rest-API)
