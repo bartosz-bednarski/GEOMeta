@@ -4,7 +4,7 @@ import HomePage from "./pages/Home";
 import ContinentsPage from "./pages/Continents";
 import ForumPage from "./pages/Forum";
 import IslandsPage from "./pages/Islands";
-import OtherPage from "./pages/Other";
+import QuizPage from "./pages/Quiz";
 import TrekkersPage from "./pages/Trekkers";
 import CountryPage from "./pages/Country";
 import LoginPage from "./pages/Login";
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
         element: <IslandsPage />,
       },
       {
-        path: "others",
-        element: <OtherPage />,
+        path: "quiz",
+        element: <QuizPage />,
       },
       {
         path: "trekkers",

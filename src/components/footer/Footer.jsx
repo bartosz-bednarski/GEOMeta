@@ -1,4 +1,4 @@
-import Logo from "../tools/LogoSmall";
+import Logo from "../ui/LogoSmall";
 import classes from "./footer.module.scss";
 import facebookLogo from "../../assets/images/footer/facebook-circle-logo-204.png";
 import gmailLogo from "../../assets/images/footer/gmail-logo-204.png";

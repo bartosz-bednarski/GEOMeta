@@ -1,4 +1,4 @@
-import Button from "../globals/Button";
+import Button from "../ui/Button";
 import classes from "./topic.module.scss";
 import { useState } from "react";
 const anonymous = (
