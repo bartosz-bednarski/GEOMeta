@@ -61,7 +61,7 @@ const TopicBox = (props) => {
             }
           >
             {usersIcons !== "" &&
-              usersIcons.reverse().map((icon) => (
+              usersIcons.map((icon) => (
                 <span
                   className={
                     classes[

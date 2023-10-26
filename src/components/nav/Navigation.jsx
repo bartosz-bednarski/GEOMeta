@@ -1,9 +1,9 @@
-import { Router, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./Navigation.module.scss";
-import LogoSmall from "../tools/LogoSmall";
-import Button from "../globals/Button";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import LogoSmall from "../ui/LogoSmall";
+import Button from "../ui/Button";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { authenticationActions } from "../../redux/authentication-slice";
 const Navigation = () => {
   const navigate = useNavigate();
@@ -94,11 +94,11 @@ const Navigation = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/others");
+                navigate("/quiz");
                 setDropdownShown(false);
               }}
             >
-              Inne
+              Quiz
             </li>
             <li
               onClick={() => {
@@ -117,7 +117,7 @@ const Navigation = () => {
           <li onClick={() => navigate("/continents")}>Kontynenty</li>
           <li onClick={() => navigate("/islands")}>Wyspy</li>
           <li onClick={() => navigate("/trekkers")}>Trekkery</li>
-          <li onClick={() => navigate("/others")}>Inne</li>
+          <li onClick={() => navigate("/quiz")}>Quiz</li>
           <li onClick={() => navigate("/forum")}>Forum</li>
         </ul>
       </nav>

@@ -1,7 +1,7 @@
 import classes from "../authentication.module.scss";
 import Logo from "../../../assets/images/logo/logogeometa.png";
 import World from "../../../assets/images/home/world.png";
-import Button from "../../globals/Button";
+import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
