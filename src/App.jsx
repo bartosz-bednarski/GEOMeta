@@ -10,6 +10,7 @@ import CountryPage from "./pages/Country";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import TopicPage from "./pages/Topic";
+import QuizTypePage from "./pages/QuizType";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "quiz",
         element: <QuizPage />,
+      },
+      {
+        path: "quiz/:quizType",
+        element: <QuizTypePage />,
       },
       {
         path: "trekkers",
