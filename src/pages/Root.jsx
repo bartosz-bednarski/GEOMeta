@@ -13,9 +13,10 @@ const RootLayout = () => {
       <div className={classes["layout"]}>
         <Outlet />
       </div>
-      {location.pathname !== "/register" && location.pathname !== "/login" && (
-        <Footer />
-      )}
+      {location.pathname !== "/register" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/quiz/flags" &&
+        location.pathname !== "/quiz/emblems" && <Footer />}
     </>
   );
 };
