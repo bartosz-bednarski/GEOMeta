@@ -63,6 +63,17 @@ const router = createBrowserRouter([
       {
         path: "quiz/:quizType",
         element: <QuizTypePage />,
+        loader: async ({ params }) => {
+          if (params.quizType === "flags") {
+            const response = await fetch(
+              // `http://localhost:9001/api/quiz/getFlags`,
+              `https://geo-meta-rest-api.vercel.app/api/quiz/getFlags`,
+              { mode: "cors" }
+            );
+            const data = await response.json();
+            return data;
+          }
+        },
       },
       {
         path: "trekkers",
