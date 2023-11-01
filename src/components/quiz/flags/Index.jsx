@@ -42,7 +42,7 @@ const FlagsQuiz = () => {
 
   const getAnswersHTTP = async () => {
     const response = await fetch(
-      "https://geo-meta-rest-api.vercel.app/api/quiz/postFlag",
+      "https://geo-meta-rest-api.vercel.app/api/quiz/postFlags",
       // "http://localhost:9001/api/quiz/postFlags",
       {
         method: "POST",
