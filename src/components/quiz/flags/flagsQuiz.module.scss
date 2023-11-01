@@ -2,12 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 89vh;
+  height: 88vh;
   &__flags-container {
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
+
     gap: 5rem;
     &__flags-box {
       display: flex;
@@ -15,10 +16,21 @@
       gap: 2rem;
       flex-wrap: wrap;
       width: 600px;
-      img {
-        width: 250px;
+      &__img-box {
+        height: 150px;
+        width: 270px;
         border-radius: 15px;
+
         box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.5);
+        :hover {
+          cursor: pointer;
+        }
+        img {
+          width: 270px;
+          height: 100%;
+          border-radius: 15px;
+          object-fit: cover;
+        }
       }
     }
     &__timer {
@@ -30,6 +42,51 @@
       height: 20px;
       background-color: rgba(255, 255, 255, 0.39);
       border-radius: 20px;
+    }
+  }
+  &__score-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 500px;
+    height: 70vh;
+    border: 4px solid #5acbe5;
+    box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    padding: 2rem;
+    gap: 3rem;
+    &__context-container {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      height: 80%;
+      justify-content: space-between;
+      text-align: center;
+      &__answers-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        &__answer-box {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          border: 2px solid #5acbe5;
+          border-radius: 15px;
+          padding: 0.5rem 1rem;
+          height: 40px;
+          justify-content: space-between;
+          img {
+            height: 20px;
+          }
+        }
+      }
+    }
+    &__buttons-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
     }
   }
 }
