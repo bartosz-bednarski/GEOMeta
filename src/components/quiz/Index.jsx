@@ -7,8 +7,10 @@ import FlagImg from "../../assets/images/forum/chileFlag.svg";
 import EmblemImg from "../../assets/images/forum/chileEmblem.svg";
 import PlateImg from "../../assets/images/forum/colombia.jpg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 const Quiz = () => {
   const navigate = useNavigate();
+  const [quizSelected, setQuizSelected] = useState(false);
   return (
     <div className={classes["quiz-container"]}>
       <div className={classes["quiz-container__about-container"]}>
@@ -20,17 +22,19 @@ const Quiz = () => {
         </h2>
         <Button content="Dowiedz się więcej" />
       </div>
-      <div className={classes["quiz-container__types-container"]}>
+      <div
+        className={classes["quiz-container__types-container"]}
+        style={quizSelected === true ? { pointerEvents: "none" } : {}}
+      >
         <QuizTypeBox
           img={FlagImg}
           type="FLAGI"
-          onClick={() => navigate("flags")}
+          onClick={() => {
+            setQuizSelected(true);
+            navigate("flags");
+          }}
         />
-        <QuizTypeBox
-          img={EmblemImg}
-          type="GODŁA"
-          onClick={() => navigate("emblems")}
-        />
+        <QuizTypeBox img={EmblemImg} type="GODŁA" />
         <QuizTypeBox img={ContinentImg} type="KONTYNENTY" />
         <QuizTypeBox img={PlateImg} type="REJESTRACJE" />
       </div>
