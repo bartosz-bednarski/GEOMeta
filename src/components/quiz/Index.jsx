@@ -34,9 +34,23 @@ const Quiz = () => {
             navigate("flags");
           }}
         />
-        <QuizTypeBox img={EmblemImg} type="GODŁA" />
-        <QuizTypeBox img={ContinentImg} type="KONTYNENTY" />
-        <QuizTypeBox img={PlateImg} type="REJESTRACJE" />
+        <QuizTypeBox
+          img={EmblemImg}
+          type="GODŁA"
+          onClick={() => {
+            setQuizSelected(true);
+            navigate("emblems");
+          }}
+        />
+        <QuizTypeBox
+          img={PlateImg}
+          type="REJESTRACJE"
+          onClick={() => {
+            setQuizSelected(true);
+            navigate("plates");
+          }}
+        />
+        {/* <QuizTypeBox img={ContinentImg} type="KONTYNENTY" /> */}
       </div>
     </div>
   );
