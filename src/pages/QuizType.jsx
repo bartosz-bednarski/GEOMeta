@@ -1,15 +1,6 @@
-import { useParams } from "react-router-dom";
-import FlagsQuiz from "../components/quiz/flags/Index";
-import EmblemsQuiz from "../components/quiz/emblems/Index";
+import QuizType from "../components/quiz/quizType/Index";
 const QuizTypePage = () => {
-  const params = useParams();
-  const quizType = params.quizType;
-  return (
-    <>
-      {quizType === "flags" && <FlagsQuiz />}
-      {quizType === "emblems" && <EmblemsQuiz />}
-    </>
-  );
+  return <QuizType />;
 };
 
 export default QuizTypePage;

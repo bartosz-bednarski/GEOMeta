@@ -11,6 +11,17 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import TopicPage from "./pages/Topic";
 import QuizTypePage from "./pages/QuizType";
+const quizTypeLoader = async ({ params }) => {
+  const url = `https://geo-meta-rest-api.vercel.app/api/quiz/get${
+    params.quizType[0].toUpperCase() + params.quizType.slice(1)
+  }`;
+  // const url = `http://localhost:9001/api/quiz/get${
+  //   params.quizType[0].toUpperCase() + params.quizType.slice(1)
+  // }`;
+  const response = await fetch(url, { mode: "cors" });
+  const data = await response.json();
+  return data;
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,17 +74,7 @@ const router = createBrowserRouter([
       {
         path: "quiz/:quizType",
         element: <QuizTypePage />,
-        loader: async ({ params }) => {
-          if (params.quizType === "flags") {
-            const response = await fetch(
-              // `http://localhost:9001/api/quiz/getFlags`,
-              `https://geo-meta-rest-api.vercel.app/api/quiz/getFlags`,
-              { mode: "cors" }
-            );
-            const data = await response.json();
-            return data;
-          }
-        },
+        loader: quizTypeLoader,
       },
       {
         path: "trekkers",

@@ -16,7 +16,8 @@ const RootLayout = () => {
       {location.pathname !== "/register" &&
         location.pathname !== "/login" &&
         location.pathname !== "/quiz/flags" &&
-        location.pathname !== "/quiz/emblems" && <Footer />}
+        location.pathname !== "/quiz/emblems" &&
+        location.pathname !== "/quiz/plates" && <Footer />}
     </>
   );
 };
