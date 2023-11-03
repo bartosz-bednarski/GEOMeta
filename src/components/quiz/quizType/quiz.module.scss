@@ -1,6 +1,8 @@
 .flags-layout {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   height: 88vh;
+  padding: 2rem 0;
 }

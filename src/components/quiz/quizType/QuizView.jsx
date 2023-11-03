@@ -39,7 +39,7 @@ const QuizView = (props) => {
       </h1>
       <div
         className={classes["quiz-view-container__quiz-view-box"]}
-        style={params.quizType === "plates" ? { width: "900px" } : {}}
+        style={params.quizType === "plates" ? { width: "80%" } : {}}
       >
         {params.quizType === "flags" &&
           props.questions.data.map((flag, index) => {
@@ -132,7 +132,12 @@ const QuizView = (props) => {
       >
         {timeLeft}
       </span>
-      <span className={classes["quiz-view-container__timer-box"]} />
+      <span className={classes["quiz-view-container__timer-box"]}>
+        <span
+          className={classes["quiz-view-container__timer-box__fill"]}
+          style={{ width: `${timeLeft * 10}%` }}
+        ></span>
+      </span>
     </div>
   );
 };
