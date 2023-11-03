@@ -194,7 +194,7 @@ const Navigation = () => {
               )}
               {username && (
                 <>
-                  <li>Profil</li>
+                  <li onClick={() => navigate("/profile")}>Profil</li>
                   <li onClick={logoutHandler}>Wyloguj się</li>
                 </>
               )}

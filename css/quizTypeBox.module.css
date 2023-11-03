@@ -1,3 +1,11 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .quiz-type-container {
   box-sizing: border-box;
   display: flex;
@@ -21,6 +29,14 @@
   box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
+}
+.quiz-type-container__type-box__loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #5acbe5; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
 }
 .quiz-type-container__type-box img {
   width: 150px;

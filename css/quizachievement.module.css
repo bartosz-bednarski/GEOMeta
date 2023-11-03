@@ -1,0 +1,62 @@
+.achievement-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+.achievement-container__header-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.achievement-container__header-box__logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #7b41bb;
+  border-radius: 50%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.achievement-container__header-box__logo-box img {
+  width: 18px;
+  height: 18px;
+}
+.achievement-container__achievement-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background: #9264c6;
+  border-radius: 10px;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.achievement-container__achievement-box__item-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background-color: #a989ce;
+  border-radius: 10px;
+  padding: 0.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  width: 160px;
+}
+.achievement-container__achievement-box__item-box__img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #7b41bb;
+  border-radius: 50%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.achievement-container__achievement-box__item-box__img-box img {
+  width: 18px;
+  height: 18px;
+}/*# sourceMappingURL=quizachievement.module.css.map */
