@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Radley&family=Roboto:wght@700&display=swap");
 .layout {
   box-sizing: border-box;
-  background: rgb(64, 36, 134);
-  background: linear-gradient(167deg, rgba(56, 19, 150, 0.81) 0%, rgba(82, 18, 147, 0.89) 21.97%, rgba(112, 24, 166, 0.94) 41.48%, rgba(106, 33, 178, 0.94) 59.51%, rgba(85, 52, 168, 0.89) 97.32%);
+  background-color: #7131b7;
   width: 100%;
   height: auto;
-  min-height: 100vh;
+  min-height: 88.7vh;
 }
 
 h1 {
@@ -22,5 +21,10 @@ h2 {
   }
   h2 {
     font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .layout {
+    min-height: 89.6vh;
   }
 }/*# sourceMappingURL=layout.module.css.map */

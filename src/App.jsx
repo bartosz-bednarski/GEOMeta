@@ -11,6 +11,7 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import TopicPage from "./pages/Topic";
 import QuizTypePage from "./pages/QuizType";
+import ProfilePage from "./pages/Profile";
 const quizTypeLoader = async ({ params }) => {
   const url = `https://geo-meta-rest-api.vercel.app/api/quiz/get${
     params.quizType[0].toUpperCase() + params.quizType.slice(1)
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
       },
     ],
   },

@@ -1,13 +1,11 @@
-.quiz-container {
-  box-sizing: border-box;
+.flags-layout {
   display: flex;
-  flex-direction: row;
-  padding: 10vh 10vw;
+  box-sizing: border-box;
   align-items: center;
-  height: 89vh;
-  justify-content: space-between;
-}
-.quiz-container__about-container {
+  justify-content: center;
+  height: 88vh;
+  padding: 2rem 0;
+}/*# sourceMappingURL=quiz.module.css.map */ontainer__about-container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
