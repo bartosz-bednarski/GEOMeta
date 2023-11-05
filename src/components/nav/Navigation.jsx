@@ -160,7 +160,7 @@ const Navigation = () => {
                 }
               >
                 <Button
-                  content={username.slice(0, 2)}
+                  content={usernameShort}
                   style={{
                     padding: 0,
                     borderRadius: "50%",

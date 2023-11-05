@@ -14,9 +14,21 @@ const Achievements = (props) => {
         <span>Osiągnięcia</span>
       </div>
       <div className={classes["achievements-container__content-box"]}>
-        <QuizAchievement type="Flagi" points="100" games="10" />
-        <QuizAchievement type="Herby" points="100" games="10" />
-        <QuizAchievement type="Rejestracje" points="100" games="10" />
+        <QuizAchievement
+          type="Flagi"
+          points={props.data.flags_quiz_score}
+          games={props.data.flags_quiz_counter}
+        />
+        <QuizAchievement
+          type="Herby"
+          points={props.data.emblems_quiz_score}
+          games={props.data.emblems_quiz_counter}
+        />
+        <QuizAchievement
+          type="Rejestracje"
+          points={props.data.plates_quiz_score}
+          games={props.data.plates_quiz_counter}
+        />
       </div>
     </div>
   );
