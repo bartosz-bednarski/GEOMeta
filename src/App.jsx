@@ -98,11 +98,8 @@ const router = createBrowserRouter([
             `https://geo-meta-rest-api.vercel.app/api/profile/getProfile`,
             {
               method: "GET",
-              cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-              credentials: "same-origin", // include, *same-origin, omit
               mode: "cors",
               headers: {
-                "Content-Type": "application/json",
                 authorization: `Bearer ${accessToken}`,
               },
             }
