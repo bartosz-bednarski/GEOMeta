@@ -12,7 +12,11 @@ const Profile = () => {
   console.log(profileData);
   return (
     <div className={classes["profile-container"]}>
-      <Personal usernameShort={profileData.username_short} />
+      <Personal
+        usernameShort={
+          profileData !== undefined ? profileData.username_short : ""
+        }
+      />
       <Password />
       <Achievements data={profileData} />
     </div>
