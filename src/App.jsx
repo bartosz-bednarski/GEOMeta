@@ -92,6 +92,23 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <ProfilePage />,
+        loader: async () => {
+          const accessToken = localStorage.getItem("accessToken");
+          const response = await fetch(
+            `https://geo-meta-rest-api.vercel.app/api/profile/getProfile`,
+            {
+              method: "GET",
+              cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+              credentials: "same-origin", // include, *same-origin, omit
+              headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+          const data = await response.json();
+          return data;
+        },
       },
     ],
   },
