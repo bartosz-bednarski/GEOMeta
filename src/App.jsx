@@ -100,6 +100,7 @@ const router = createBrowserRouter([
               method: "GET",
               cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
               credentials: "same-origin", // include, *same-origin, omit
+              mode: "cors",
               headers: {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${accessToken}`,
