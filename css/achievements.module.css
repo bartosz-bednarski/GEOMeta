@@ -36,4 +36,25 @@
   align-items: center;
   gap: 1rem;
   height: 750px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .achievements-container {
+    width: auto;
+  }
+  .achievements-container__content-box {
+    flex-direction: row;
+    height: auto;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .achievements-container {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .achievements-container {
+    width: 300px;
+  }
 }/*# sourceMappingURL=achievements.module.css.map */
