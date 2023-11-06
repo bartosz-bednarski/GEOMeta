@@ -37,3 +37,23 @@
     height: 750px;
   }
 }
+@media only screen and (max-width: 1500px) {
+  .achievements-container {
+    width: auto;
+    &__content-box {
+      flex-direction: row;
+      height: auto;
+      flex-wrap: wrap;
+    }
+  }
+}
+@media only screen and (max-width: 950px) {
+  .achievements-container {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .achievements-container {
+    width: 300px;
+  }
+}
