@@ -66,7 +66,7 @@ const Navigation = () => {
                 setDropdownShown(false);
               }}
             >
-              Home
+              Strona Główna
             </li>
             <li
               onClick={() => {
@@ -76,7 +76,7 @@ const Navigation = () => {
             >
               Kontynenty
             </li>
-            <li
+            {/* <li
               onClick={() => {
                 navigate("/islands");
                 setDropdownShown(false);
@@ -91,7 +91,7 @@ const Navigation = () => {
               }}
             >
               Trekkery
-            </li>
+            </li> */}
             <li
               onClick={() => {
                 navigate("/quiz");
@@ -113,10 +113,10 @@ const Navigation = () => {
       )}
       <nav className={classes["nav-container__navigation"]}>
         <ul className={classes["nav-container__navigation__pages"]}>
-          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/")}>Strona Główna</li>
           <li onClick={() => navigate("/continents")}>Kontynenty</li>
-          <li onClick={() => navigate("/islands")}>Wyspy</li>
-          <li onClick={() => navigate("/trekkers")}>Trekkery</li>
+          {/* <li onClick={() => navigate("/islands")}>Wyspy</li>
+          <li onClick={() => navigate("/trekkers")}>Trekkery</li> */}
           <li onClick={() => navigate("/quiz")}>Quiz</li>
           <li onClick={() => navigate("/forum")}>Forum</li>
         </ul>
