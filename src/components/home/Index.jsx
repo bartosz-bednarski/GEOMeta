@@ -4,18 +4,9 @@ import LogoBig from "../ui/LogoBig";
 import worldBookImg from "../../assets/images/home/world.png";
 import lemur from "../../assets/images/home/lemur.png";
 import rucksack from "../../assets/images/home/rucksack.png";
-import statue from "../../assets/images/home/statueofliberty.png";
 import forum from "../../assets/images/home/forum.png";
-import { useEffect } from "react";
-import axios from "axios";
+import QuizLogo from "../ui/QuizLogo";
 const Home = () => {
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const results = await axios.get("http://localhost:5000/api/continents");
-  //     console.log(results);
-  //   };
-  //   fetchData();
-  // });
   return (
     <div className={classes.home}>
       <main className={classes["home__main-container"]}>
@@ -132,22 +123,21 @@ const Home = () => {
           <span
             className={`${classes["home__section__content-text"]}  ${classes["home-border-top"]} ${classes["home-corners-right"]}`}
           >
-            <h1>Inne</h1>
+            <h1>Quizy</h1>
             <br />
             <p>
-              Istnieje wiele innych unikalnych elementów, które pozwalają
-              rozpoznać różne miejsca na świecie.
+              Zapraszamy do rozpoczęcia przygody z naszymi quizami, gdzie możesz
+              stawić czoła wyzwaniom związanymi krajami.
             </p>
             <br />
             <p>
-              W naszym przewodniku przedstawimy Ci te wyjątkowe cechy, takie jak
-              ikoniczne budowle, charakterystyczne krajobrazy, kulturowe
-              elementy oraz lokalne zwyczaje, które wyróżniają poszczególne
-              regiony. Dzięki temu będziesz mógł zgłębiać tajemnice świata,
-              odkrywając jego różnorodność i bogactwo bez wychodzenia z domu!
+              Każdy quiz to możliwość zgłębienia wiedzy o różnych krajach, ich
+              symbolach narodowych oraz rozpoznawania charakterystycznych cech
+              geograficznych. Wybierz kategorię, którą chcesz zgłębić, i pokaż,
+              jak dobrze znasz świat! Czy jesteś gotowy na to wyzwanie?
             </p>
           </span>
-          <img src={statue} className={classes["home__section__content-img"]} />
+          <QuizLogo />
         </div>
       </section>
       <section
