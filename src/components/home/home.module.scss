@@ -242,6 +242,7 @@
 @media only screen and (max-width: 768px) {
   .home {
     &__main-container {
+      height: 66vh;
       &__worldBookImg {
         width: 300px;
       }
@@ -265,6 +266,23 @@
       &__text-box {
         img {
           width: 300px;
+        }
+      }
+      &__worldBookImg {
+        width: 300px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .home {
+    &__main-container {
+      &__text-box {
+        &__text {
+          font-size: 1rem;
+        }
+        img {
+          width: 200px;
         }
       }
       &__worldBookImg {
