@@ -63,6 +63,7 @@ const Navigation = () => {
             <li
               onClick={() => {
                 navigate("/");
+                setUserListShown(false);
                 setDropdownShown(false);
               }}
             >
@@ -71,6 +72,7 @@ const Navigation = () => {
             <li
               onClick={() => {
                 navigate("/continents");
+                setUserListShown(false);
                 setDropdownShown(false);
               }}
             >
@@ -79,7 +81,7 @@ const Navigation = () => {
             {/* <li
               onClick={() => {
                 navigate("/islands");
-                setDropdownShown(false);
+                setUserListShown(false);setDropdownShown(false);
               }}
             >
               Wyspy
@@ -87,7 +89,7 @@ const Navigation = () => {
             <li
               onClick={() => {
                 navigate("/trekkers");
-                setDropdownShown(false);
+                setUserListShown(false);setDropdownShown(false);
               }}
             >
               Trekkery
@@ -95,6 +97,7 @@ const Navigation = () => {
             <li
               onClick={() => {
                 navigate("/quiz");
+                setUserListShown(false);
                 setDropdownShown(false);
               }}
             >
@@ -103,6 +106,7 @@ const Navigation = () => {
             <li
               onClick={() => {
                 navigate("/forum");
+                setUserListShown(false);
                 setDropdownShown(false);
               }}
             >
@@ -113,12 +117,40 @@ const Navigation = () => {
       )}
       <nav className={classes["nav-container__navigation"]}>
         <ul className={classes["nav-container__navigation__pages"]}>
-          <li onClick={() => navigate("/")}>Strona Główna</li>
-          <li onClick={() => navigate("/continents")}>Kontynenty</li>
+          <li
+            onClick={() => {
+              setUserListShown(false);
+              navigate("/");
+            }}
+          >
+            Strona Główna
+          </li>
+          <li
+            onClick={() => {
+              setUserListShown(false);
+              navigate("/continents");
+            }}
+          >
+            Kontynenty
+          </li>
           {/* <li onClick={() => navigate("/islands")}>Wyspy</li>
           <li onClick={() => navigate("/trekkers")}>Trekkery</li> */}
-          <li onClick={() => navigate("/quiz")}>Quiz</li>
-          <li onClick={() => navigate("/forum")}>Forum</li>
+          <li
+            onClick={() => {
+              setUserListShown(false);
+              navigate("/quiz");
+            }}
+          >
+            Quiz
+          </li>
+          <li
+            onClick={() => {
+              setUserListShown(false);
+              navigate("/forum");
+            }}
+          >
+            Forum
+          </li>
         </ul>
       </nav>
 
@@ -188,13 +220,34 @@ const Navigation = () => {
             <ul>
               {!username && (
                 <>
-                  <li onClick={() => navigate("/login")}>Zaloguj się</li>
-                  <li onClick={() => navigate("/register")}>Zarejestruj się</li>
+                  <li
+                    onClick={() => {
+                      setUserListShown(false);
+                      navigate("/login");
+                    }}
+                  >
+                    Zaloguj się
+                  </li>
+                  <li
+                    onClick={() => {
+                      setUserListShown(false);
+                      navigate("/register");
+                    }}
+                  >
+                    Zarejestruj się
+                  </li>
                 </>
               )}
               {username && (
                 <>
-                  <li onClick={() => navigate("/profile")}>Profil</li>
+                  <li
+                    onClick={() => {
+                      setUserListShown(false);
+                      navigate("/profile");
+                    }}
+                  >
+                    Profil
+                  </li>
                   <li onClick={logoutHandler}>Wyloguj się</li>
                 </>
               )}
