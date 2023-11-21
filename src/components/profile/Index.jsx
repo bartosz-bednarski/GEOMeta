@@ -4,10 +4,12 @@ import Achievements from "./Achievements";
 import Password from "./Password";
 import Personal from "./Personal";
 import classes from "./profile.module.scss";
+import Loader from "../ui/Loader";
 
 const Profile = () => {
   const accessToken = localStorage.getItem("accessToken");
   const [profileData, setProfileData] = useState("");
+  const [loaderShown, setLoaderShown] = useState(true);
   useEffect(() => {
     const getProfileData = async () => {
       const response = await fetch(
@@ -24,11 +26,13 @@ const Profile = () => {
       );
       const data = await response.json();
       setProfileData(data.body);
+      setLoaderShown(false);
     };
     getProfileData();
   }, []);
-
-  console.log(profileData);
+  if (loaderShown) {
+    return <Loader />;
+  }
   return (
     <div className={classes["profile-container"]}>
       {profileData !== "" && (
