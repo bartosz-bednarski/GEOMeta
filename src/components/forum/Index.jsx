@@ -1,3 +1,4 @@
+import Loader from "../ui/Loader";
 import AddTopic from "./AddTopic";
 import Headers from "./Headers";
 import TopicBox from "./TopicBox";
@@ -9,6 +10,7 @@ const Forum = () => {
   const navigate = useNavigate();
   const [topics, setTopics] = useState("");
   const [temporaryUpdateHelper, setTemporaryUpdateHelper] = useState(false);
+  const [loaderShown, setLoaderShown] = useState(true);
   useEffect(() => {
     const getTopics = async () => {
       const response = await fetch(
@@ -25,12 +27,15 @@ const Forum = () => {
         }
       );
       const data = await response.json();
+      setLoaderShown(false);
       console.log(data);
       setTopics(data);
     };
     getTopics();
   }, [temporaryUpdateHelper]);
-
+  if (loaderShown) {
+    return <Loader />;
+  }
   return (
     <div className={classes["forum-container"]}>
       {accessToken && (

@@ -1,0 +1,95 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner-container {
+  display: flex;
+  width: 100%;
+  height: 88vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.spinner-container__spinner-box {
+  position: relative;
+}
+.spinner-container__spinner-box__spinner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
+  background-color: transparent;
+  border-radius: 50%;
+  border-right: 10px solid #0866ff;
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.spinner-container__spinner-box__spinner__plane {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: -20px;
+  left: 300px;
+  z-index: 10;
+  transform: rotate(180deg);
+}
+.spinner-container__spinner-box__world-img {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 500px;
+  height: 500px;
+}
+.spinner-container__text {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 910px) {
+  .spinner-container__spinner-box__spinner {
+    width: 400px;
+    height: 400px;
+  }
+  .spinner-container__spinner-box__spinner__plane {
+    width: 40px;
+    height: 40px;
+    bottom: -18px;
+    left: 160px;
+  }
+  .spinner-container__spinner-box__world-img {
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .spinner-container__spinner-box__spinner {
+    width: 240px;
+    height: 240px;
+    border-right: 5px solid #0866ff;
+  }
+  .spinner-container__spinner-box__spinner__plane {
+    width: 30px;
+    height: 30px;
+    bottom: -15px;
+    left: 90px;
+  }
+  .spinner-container__spinner-box__world-img {
+    top: 30px;
+    left: 30px;
+    width: 180px;
+    height: 180px;
+  }
+}/*# sourceMappingURL=loader.module.css.map */

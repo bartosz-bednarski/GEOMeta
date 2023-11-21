@@ -199,6 +199,9 @@
   }
 }
 @media only screen and (max-width: 768px) {
+  .home__main-container {
+    height: 66vh;
+  }
   .home__main-container__worldBookImg {
     width: 300px;
   }
@@ -215,6 +218,17 @@
 @media only screen and (max-width: 640px) {
   .home__main-container__text-box img {
     width: 300px;
+  }
+  .home__main-container__worldBookImg {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .home__main-container__text-box__text {
+    font-size: 1rem;
+  }
+  .home__main-container__text-box img {
+    width: 200px;
   }
   .home__main-container__worldBookImg {
     width: 200px;

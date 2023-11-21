@@ -1,5 +1,7 @@
 import { useState } from "react";
 import classes from "./quizTypeBox.module.scss";
+import Loader from "../ui/Loader";
+import LoaderSm from "../ui/LoaderSm";
 
 const QuizTypeBox = (props) => {
   const [loader, setLoader] = useState(false);
@@ -12,13 +14,7 @@ const QuizTypeBox = (props) => {
       }}
     >
       <div className={classes["quiz-type-container__type-box"]}>
-        {loader ? (
-          <span
-            className={classes["quiz-type-container__type-box__loader"]}
-          ></span>
-        ) : (
-          <img src={props.img} />
-        )}
+        {loader ? <LoaderSm /> : <img src={props.img} />}
       </div>
       {props.type}
     </div>
