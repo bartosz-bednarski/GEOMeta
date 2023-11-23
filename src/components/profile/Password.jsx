@@ -4,9 +4,12 @@ import Button from "../ui/Button";
 import check from "../../assets/images/ui/checkmark-outline.svg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAccessToken } from "../../redux/auth-reducer";
 const Password = (props) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = useSelector((state) => state.auth.accessToken);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordConfirm, setNewPasswordConfirm] = useState("");
@@ -94,12 +97,12 @@ const Password = (props) => {
         // setResponseMessage({ status: true, message: "Password changed" });
         localStorage.removeItem("accessToken");
         localStorage.setItem("accessToken", data.body.accessToken);
+        dispatch(updateAccessToken(data.body.accessToken));
         setOldPassword("");
         setNewPassword("");
         setNewPasswordConfirm("");
         setTimeout(() => {
           setLoader({ status: false, type: "" });
-          navigate(0);
         }, 2000);
       }
       if (data.message === "One or more passwords are too short") {

@@ -3,19 +3,21 @@ import classes from "./Navigation.module.scss";
 import LogoSmall from "../ui/LogoSmall";
 import Button from "../ui/Button";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { authenticationActions } from "../../redux/authentication-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/auth-reducer";
 const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dropdownShown, setDropdownShown] = useState(false);
-  const username = localStorage.getItem("username");
-  const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
-  const email = localStorage.getItem("email");
-  const usernameShort = localStorage.getItem("usernameShort");
+  const username = useSelector((state) => state.auth.userName);
+  const iconBackgroundColor = useSelector(
+    (state) => state.auth.iconBackgroundColor
+  );
+  const email = useSelector((state) => state.auth.email);
+  const usernameShort = useSelector((state) => state.auth.usernameShort);
   const [userListShown, setUserListShown] = useState(false);
   const logoutHandler = () => {
-    dispatch(authenticationActions.setLoggedOut());
+    dispatch(logout());
     localStorage.removeItem("username");
     localStorage.removeItem("iconBackgroundColor");
     localStorage.removeItem("email");

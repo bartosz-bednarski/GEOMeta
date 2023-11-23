@@ -5,7 +5,7 @@ import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { authenticationActions } from "../../../redux/authentication-slice";
+import { loginUser } from "../../../redux/auth-reducer";
 const Login = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
@@ -67,7 +67,7 @@ const Login = () => {
         setPassword("");
       }
       if (data.message === "loggedIn") {
-        localStorage.setItem("username", data.body.username);
+        localStorage.setItem("userName", data.body.username);
         localStorage.setItem(
           "iconBackgroundColor",
           data.body.iconBackgroundColor
@@ -76,9 +76,12 @@ const Login = () => {
         localStorage.setItem("accessToken", data.body.accessToken);
         localStorage.setItem("usernameShort", data.body.usernameShort);
         dispatch(
-          authenticationActions.setLoggedIn({
-            userName: data.body.username,
+          loginUser({
+            accessToken: data.body.accessToken,
+            email: data.body.email,
             iconBackgroundColor: data.body.iconBackgroundColor,
+            userName: data.body.username,
+            usernameShort: data.body.usernameShort,
           })
         );
         navigate("/");

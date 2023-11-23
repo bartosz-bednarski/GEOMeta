@@ -1,8 +1,12 @@
 import classes from "./achievements.module.scss";
-
+import { useSelector } from "react-redux";
 import trophyImg from "../../assets/images/ui/trophy.svg";
 import QuizAchievement from "./QuizAchievement";
-const Achievements = (props) => {
+const Achievements = () => {
+  const flagsQuiz = useSelector((state) => state.achievements.flagsQuiz);
+  const emblemsQuiz = useSelector((state) => state.achievements.emblemsQuiz);
+  const platesQuiz = useSelector((state) => state.achievements.platesQuiz);
+  console.log(flagsQuiz);
   return (
     <div className={classes["achievements-container"]}>
       <div className={classes["achievements-container__header-box"]}>
@@ -16,18 +20,18 @@ const Achievements = (props) => {
       <div className={classes["achievements-container__content-box"]}>
         <QuizAchievement
           type="Flagi"
-          points={props.data.flags_quiz_score}
-          games={props.data.flags_quiz_counter}
+          points={flagsQuiz.points}
+          games={flagsQuiz.games}
         />
         <QuizAchievement
           type="Herby"
-          points={props.data.emblems_quiz_score}
-          games={props.data.emblems_quiz_counter}
+          points={emblemsQuiz.points}
+          games={emblemsQuiz.games}
         />
         <QuizAchievement
           type="Rejestracje"
-          points={props.data.plates_quiz_score}
-          games={props.data.plates_quiz_counter}
+          points={platesQuiz.points}
+          games={platesQuiz.games}
         />
       </div>
     </div>
