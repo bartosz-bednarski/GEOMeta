@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authentication from "./authentication-slice";
-
+import auth from "./auth-reducer";
+import achievementsReducer from "./achievements-reducer";
 const store = configureStore({
   reducer: {
-    authentication: authentication,
+    auth: auth,
+    achievements: achievementsReducer,
   },
 });
 export default store;

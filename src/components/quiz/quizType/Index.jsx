@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import QuizView from "./QuizView";
 import QuizScore from "./QuizScore";
+import { useDispatch } from "react-redux";
+import { updateAchievements } from "../../../redux/achievements-reducer";
+import Loader from "../../ui/Loader";
 const QuizType = () => {
+  const dispatch = useDispatch();
   const params = useParams();
-  console.log(params.quizType);
   const accessToken = localStorage.getItem("accessToken");
   const loader = useLoaderData();
   const [data, setData] = useState(loader.data);
@@ -19,6 +22,7 @@ const QuizType = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [serverAnswers, setServerAnswers] = useState("");
   const [userScore, setUserScore] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
   const setQuestionsHandler = () => {
     setQuestions((prevState) => {
       if (prevState.id < 4) {
@@ -40,6 +44,7 @@ const QuizType = () => {
   };
 
   const postAnswersHTTP = async () => {
+    setIsFetching(true);
     const param = params.quizType;
     console.log(param);
     const url = accessToken
@@ -67,7 +72,9 @@ const QuizType = () => {
       body: JSON.stringify(userAnswers),
     });
     const data = await response.json();
+    setIsFetching(false);
     if ((data.message = "ok")) {
+      dispatch(updateAchievements());
       setServerAnswers(data.data.user_correct_answers);
       setUserScore(data.data.user_score);
     }
@@ -79,6 +86,9 @@ const QuizType = () => {
       console.log("getAnswers");
     }
   }, [getAnswers]);
+  if (isFetching) {
+    return <Loader />;
+  }
   return (
     <div className={classes["flags-layout"]}>
       {questions.id !== 5 && (

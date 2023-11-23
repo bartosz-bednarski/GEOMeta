@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useEffect } from "react";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ContinentsPage from "./pages/Continents";
@@ -12,6 +13,8 @@ import RegisterPage from "./pages/Register";
 import TopicPage from "./pages/Topic";
 import QuizTypePage from "./pages/QuizType";
 import ProfilePage from "./pages/Profile";
+import { useSelector, useDispatch } from "react-redux";
+import { checkAuth } from "./redux/auth-reducer";
 const quizTypeLoader = async ({ params }) => {
   const url = `https://geo-meta-rest-api.vercel.app/api/quiz/get${
     params.quizType[0].toUpperCase() + params.quizType.slice(1)
@@ -98,6 +101,26 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const dispatch = useDispatch();
+  const authStatus = useSelector((state) => state.auth.loggedIn);
+  useEffect(() => {
+    const username = localStorage.getItem("userName");
+    if (username !== "" && !authStatus) {
+      const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
+      const email = localStorage.getItem("email");
+      const usernameShort = localStorage.getItem("usernameShort");
+      const accessToken = localStorage.getItem("accessToken");
+      dispatch(
+        checkAuth({
+          accessToken: accessToken,
+          email: email,
+          iconBackgroundColor: iconBackgroundColor,
+          userName: username,
+          usernameShort: usernameShort,
+        })
+      );
+    }
+  }, []);
   return <RouterProvider router={router} />;
 }
 

@@ -4,12 +4,17 @@ import userImg from "../../assets/images/ui/user.svg";
 import check from "../../assets/images/ui/checkmark-outline.svg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { changeShortname } from "../../redux/auth-reducer";
 const Personal = (props) => {
-  const accessToken = localStorage.getItem("accessToken");
-  const username = localStorage.getItem("username");
-
-  const email = localStorage.getItem("email");
-  const iconBackgroundColor = localStorage.getItem("iconBackgroundColor");
+  const dispatch = useDispatch();
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  const username = useSelector((state) => state.auth.userName);
+  const iconBackgroundColor = useSelector(
+    (state) => state.auth.iconBackgroundColor
+  );
+  const email = useSelector((state) => state.auth.email);
+  const usernameShort = useSelector((state) => state.auth.usernameShort);
   const navigate = useNavigate();
   const [shortName, setShortName] = useState("");
   const [shortNameWarning, setShortNameWarning] = useState({
@@ -56,13 +61,13 @@ const Personal = (props) => {
       });
       const data = await response.json();
       if (data.message === "ok") {
+        dispatch(changeShortname(shortName));
         setLoader({ status: true, type: "shortNameChanged" });
         localStorage.removeItem("usernameShort");
         localStorage.setItem("usernameShort", data.body.usernameShort);
         setShortName("");
         setTimeout(() => {
           setLoader({ status: false, type: "" });
-          navigate(0);
         }, 2000);
       }
       if (data.message === "Shortname too long") {
@@ -106,7 +111,7 @@ const Personal = (props) => {
               className={classes["personal-container__personal-box__user-icon"]}
               style={{ backgroundColor: iconBackgroundColor }}
             >
-              {props.usernameShort}
+              {usernameShort}
             </span>
             <span
               className={
