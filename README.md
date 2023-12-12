@@ -21,7 +21,9 @@
 <img src="/public/readme/02.PNG" alt="Logo" width="100%" height="100%">
 
 GeoMeta is an online guide for the browser game Geoguesrr.
-
+<br /><br />Demo account:<br />
+            - Login: Demo<br />
+            - Password: 123456789<br /><br />
 ★ Website is built with two layers:
  - Frontend written in React.
  - Backend in the form of a REST API written in Express.<br/>
