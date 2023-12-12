@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/components/privacy/privacy.module.scss","privacy.module.css"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,eAAA;ACCF;ADAE;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,SAAA;ACEJ;ADDI;EACE,kBAAA;EACA,mBAAA;ACGN;ADDI;EACE,WAAA;EACA,gBAAA;EACA,gBAAA;ACGN;ADDI;EACE,iBAAA;ACGN","file":"privacy.module.css"}

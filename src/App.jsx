@@ -15,6 +15,7 @@ import QuizTypePage from "./pages/QuizType";
 import ProfilePage from "./pages/Profile";
 import { useSelector, useDispatch } from "react-redux";
 import { checkAuth } from "./redux/auth-reducer";
+import PrivacyPage from "./pages/Privacy";
 const quizTypeLoader = async ({ params }) => {
   const url = `https://geo-meta-rest-api.vercel.app/api/quiz/get${
     params.quizType[0].toUpperCase() + params.quizType.slice(1)
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "privacy",
+        element: <PrivacyPage />,
       },
     ],
   },

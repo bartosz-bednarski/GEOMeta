@@ -18,13 +18,18 @@ const Footer = () => {
       <Logo />
       <span>Copyright © 2023 https://geo-meta.vercel.app</span>
       <div className={classes["footer__contact"]}>
-        {SOCIAL_ICONS.map((item) => (
-          <img
-            className={classes["footer__contact-icon"]}
-            src={item.icon}
-            alt={item.alt}
-          />
-        ))}
+        <div className={classes["footer__contact__icons-box"]}>
+          {SOCIAL_ICONS.map((item) => (
+            <img
+              className={classes["footer__contact__icons-box__icon"]}
+              src={item.icon}
+              alt={item.alt}
+            />
+          ))}
+        </div>
+        <a href="/privacy" className={classes["footer__contact__privacy"]}>
+          Polityka prywatności
+        </a>
       </div>
     </div>
   );
