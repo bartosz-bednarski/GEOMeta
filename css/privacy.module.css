@@ -1,0 +1,25 @@
+.privacy {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5vh 7vw;
+}
+.privacy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.privacy-box h1 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.privacy-box__text {
+  width: 100%;
+  text-align: left;
+  max-width: 700px;
+}
+.privacy-box ul {
+  margin-left: 1rem;
+}/*# sourceMappingURL=privacy.module.css.map */
