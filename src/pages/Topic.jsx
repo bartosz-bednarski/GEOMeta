@@ -1,4 +1,4 @@
-import Topic from "../components/forum/topic/Topic";
+import Topic from "../components/forum/topic/Index";
 const TopicPage = () => {
   return <Topic />;
 };

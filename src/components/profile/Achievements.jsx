@@ -6,7 +6,6 @@ const Achievements = () => {
   const flagsQuiz = useSelector((state) => state.achievements.flagsQuiz);
   const emblemsQuiz = useSelector((state) => state.achievements.emblemsQuiz);
   const platesQuiz = useSelector((state) => state.achievements.platesQuiz);
-  console.log(flagsQuiz);
   return (
     <div className={classes["achievements-container"]}>
       <div className={classes["achievements-container__header-box"]}>

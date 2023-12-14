@@ -1,25 +1,21 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import classes from "./country.module.scss";
-import polandflag from "../../assets/images/country/flags/poland.svg";
-import CountryDetailsBorder15 from "../ui/CountryDetailsBorder15";
-import CountryDetailsBorder50 from "../ui/CountryDetailsBorder50";
+import SmallFrame from "../ui/SmallFrame";
+import LargeFrame from "../ui/LargeFrame";
 import CountryDetailsEmblem from "../ui/CountryDetailsEmblem";
-import ModalLayout from "../ui/ModalLayout";
 import ModalCountryIcons from "./ModalCountryIcons";
 
-const Country = (props) => {
+const Country = ({ data }) => {
   const [displayModal, setDisplayModal] = useState(true);
   useEffect(() => {
-    if (localStorage.getItem("iconmodaldisplay") == "1") {
+    if (localStorage.getItem("displayIconsMeaningModal") === "1") {
       setDisplayModal(false);
     }
-    localStorage.setItem("iconmodaldisplay", "1");
+    localStorage.setItem("displayIconsMeaningModal", "1");
   }, []);
 
-  const countryFlag = require(`../../assets/images/country/flags/${props.data[0].country_flag}`);
-  const plates = require(`../../assets/images/country/plates/${props.data[0].plate}`);
-  const params = useParams();
+  const countryFlag = require(`../../assets/images/country/flags/${data[0].country_flag}`);
+  const plates = require(`../../assets/images/country/plates/${data[0].plate}`);
   return (
     <>
       {displayModal && <ModalCountryIcons />}
@@ -32,7 +28,7 @@ const Country = (props) => {
               ]
             }
           >
-            {props.data[0].country_name}
+            {data[0].country_name}
           </span>
           <div
             className={
@@ -59,7 +55,7 @@ const Country = (props) => {
                 ]
               }
             >
-              {props.data[0].country_name}
+              {data[0].country_name}
             </span>
             <div
               className={
@@ -68,12 +64,12 @@ const Country = (props) => {
                 ]
               }
             >
-              <CountryDetailsBorder15 type="capitol" width="small">
-                {props.data[0].capitol}
-              </CountryDetailsBorder15>
-              <CountryDetailsBorder15 type="dolar" width="small">
-                {props.data[0].currency}
-              </CountryDetailsBorder15>
+              <SmallFrame type="capitol" width="small">
+                {data[0].capitol}
+              </SmallFrame>
+              <SmallFrame type="dolar" width="small">
+                {data[0].currency}
+              </SmallFrame>
             </div>
             <div
               className={
@@ -82,22 +78,22 @@ const Country = (props) => {
                 ]
               }
             >
-              <CountryDetailsEmblem emblem={props.data[0].emblem} />
-              <CountryDetailsBorder50 type={props.data[0].temperature} />
-              <CountryDetailsBorder50 type={props.data[0].movement} />
+              <CountryDetailsEmblem emblem={data[0].emblem} />
+              <LargeFrame type={data[0].temperature} />
+              <LargeFrame type={data[0].movement} />
             </div>
-            <a href={props.data[0].website}>
-              <CountryDetailsBorder15 type="website" width="lage">
-                {props.data[0].website}
-              </CountryDetailsBorder15>
+            <a href={data[0].website}>
+              <SmallFrame type="website" width="lage">
+                {data[0].website}
+              </SmallFrame>
             </a>
-            <CountryDetailsBorder15 type="plate" width="large">
+            <SmallFrame type="plate" width="large">
               <img
                 style={{ width: "100%", height: "100%", borderRadius: "15px" }}
                 src={plates}
                 alt="vehicle-plate"
               />
-            </CountryDetailsBorder15>
+            </SmallFrame>
           </div>
         </div>
       </div>

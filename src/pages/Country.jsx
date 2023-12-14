@@ -1,9 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Country from "../components/country/Index";
-import { useEffect } from "react";
 const CountryPage = () => {
   const data = useLoaderData();
-  if (data.data.length == 0) {
+  if (data.data.length === 0) {
     data.data.push({
       capitol: "Coming soon",
       country_flag: "poland.svg",

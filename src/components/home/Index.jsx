@@ -1,7 +1,7 @@
 import classes from "./home.module.scss";
 import Africa from "../../assets/images/home/africa.1024x977.png";
 import LogoBig from "../ui/LogoBig";
-import worldBookImg from "../../assets/images/home/world.png";
+import earthImg from "../../assets/images/home/world.png";
 import lemur from "../../assets/images/home/lemur.png";
 import rucksack from "../../assets/images/home/rucksack.png";
 import forum from "../../assets/images/home/forum.png";
@@ -19,15 +19,20 @@ const Home = () => {
           </span>
         </div>
         <img
-          src={worldBookImg}
+          src={earthImg}
           className={classes["home__main-container__worldBookImg"]}
+          alt="earthImg"
         />
       </main>
       <section
         className={`${classes["home__section"]} ${classes["home__section__left"]}`}
       >
         <div className={classes["home__section__content"]}>
-          <img src={Africa} className={classes["home__section__content-img"]} />
+          <img
+            src={Africa}
+            className={classes["home__section__content-img"]}
+            alt="africa"
+          />
           <span
             className={`${classes["home__section__content-text"]} ${classes["home-border-right"]}`}
           >
@@ -79,7 +84,11 @@ const Home = () => {
               naszej planecie.
             </p>
           </span>
-          <img src={lemur} className={classes["home__section__content-img"]} />
+          <img
+            src={lemur}
+            className={classes["home__section__content-img"]}
+            alt="lemur"
+          />
         </div>
       </section>
       <section
@@ -89,6 +98,7 @@ const Home = () => {
           <img
             src={rucksack}
             className={classes["home__section__content-img"]}
+            alt="rucksack"
           />
           <span
             className={`${classes["home__section__content-text"]} ${classes["home-corners-left"]}`}
@@ -144,7 +154,11 @@ const Home = () => {
         className={`${classes["home__section"]} ${classes["home__section__left"]}`}
       >
         <div className={classes["home__section__content"]}>
-          <img src={forum} className={classes["home__section__content-img"]} />
+          <img
+            src={forum}
+            className={classes["home__section__content-img"]}
+            alt="forum"
+          />
           <span
             className={`${classes["home__section__content-text"]} ${classes["home-corner-left-top"]} ${classes["home-border-top"]}`}
           >

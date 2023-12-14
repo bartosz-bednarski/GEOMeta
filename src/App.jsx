@@ -125,7 +125,7 @@ function App() {
         })
       );
     }
-  }, []);
+  }, [authStatus, dispatch]);
   return <RouterProvider router={router} />;
 }
 

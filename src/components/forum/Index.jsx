@@ -5,6 +5,7 @@ import TopicBox from "./TopicBox";
 import classes from "./forum.module.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getTopics } from "../../api/forum";
 const Forum = () => {
   const accessToken = localStorage.getItem("accessToken");
   const navigate = useNavigate();
@@ -12,27 +13,12 @@ const Forum = () => {
   const [temporaryUpdateHelper, setTemporaryUpdateHelper] = useState(false);
   const [loaderShown, setLoaderShown] = useState(true);
   useEffect(() => {
-    const getTopics = async () => {
-      const response = await fetch(
-        "https://geo-meta-rest-api.vercel.app/api/forum/getTopics",
-        // "http://localhost:9001/api/forum/getTopics",
-        {
-          method: "GET",
-          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: "same-origin", // include, *same-origin, omit
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-      const data = await response.json();
+    const setTopicsHandler = async () => {
+      setTopics(await getTopics(accessToken));
       setLoaderShown(false);
-      console.log(data);
-      setTopics(data);
     };
-    getTopics();
-  }, [temporaryUpdateHelper]);
+    setTopicsHandler();
+  }, [temporaryUpdateHelper, accessToken]);
   if (loaderShown) {
     return <Loader />;
   }
@@ -46,7 +32,7 @@ const Forum = () => {
 
       <Headers />
       {topics !== "" &&
-        topics.data.toReversed().map((item) => {
+        topics.map((item) => {
           const {
             date,
             dateString,
@@ -56,11 +42,19 @@ const Forum = () => {
             username,
             usernameShort,
           } = item;
-          console.log(item);
           return (
             <TopicBox
+              topic_id={item.topic_id}
+              iconBackgroundColor={item.iconBackgroundColor}
+              dateString={item.dateString}
+              timeString={item.timeString}
+              topic={item.topic}
+              username={item.username}
+              usernameShort={item.usernameShort}
               data={item}
+              date={item.date}
               key={item.topic_id}
+              commentsArr={item.comments}
               onClick={() =>
                 navigate(item.topic_id, {
                   state: {

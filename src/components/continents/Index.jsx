@@ -1,15 +1,15 @@
 import classes from "./continents.module.scss";
-
 import NorthAmericaSingleImg from "../../assets/images/continents/continentsSingle/northAmerica.svg";
 import SouthAmericaSingleImg from "../../assets/images/continents/continentsSingle/southAmerica.svg";
 import AfricaSingleImg from "../../assets/images/continents/continentsSingle/africa6.svg";
 import OceaniaSingleImg from "../../assets/images/continents/continentsSingle/oceania2.svg";
 import EuropeSingleImg from "../../assets/images/continents/continentsSingle/europe2.svg";
 import AsiaSingleImg from "../../assets/images/continents/continentsSingle/asia2.svg";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import WorldMap from "./WorldMap";
-import CountryLabel from "../ui/CountryLabel";
+import { default as CountryBox } from "../ui/CountryLabel";
 import { useNavigate } from "react-router-dom";
+import { getContinent } from "../../api/continents";
 
 const Continents = () => {
   const [activeContinent, setActiveContinent] = useState({
@@ -20,25 +20,18 @@ const Continents = () => {
   const [countries, setCountries] = useState([]);
   const continentRef = useRef(null);
   const navigate = useNavigate();
-  // let check = activeContinent.id !== "" ? true : false;
 
-  const activeContinentHandler = async ({ id: id, continent: continent }) => {
+  const activeContinentHandler = async ({ id, continent }) => {
     setActiveContinent({
       active: true,
       id: id,
       continent: continent,
     });
-    const response = await fetch(
-      `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-      { mode: "cors" }
-    );
-    const data = await response.json();
-    setCountries(data.data);
+
+    const data = await getContinent(id);
+    setCountries(data);
     continentRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  // useEffect(() => {
-  //   activeContinentHandler();
-  // }, []);
 
   return (
     <div className={classes.continents}>
@@ -65,6 +58,7 @@ const Continents = () => {
                   SouthAmericaSingleImg) ||
                 (activeContinent.id === "oceania" && OceaniaSingleImg)
               }
+              alt="continent"
               className={classes["continents__continent__image-box__image"]}
             />
           </div>
@@ -80,10 +74,9 @@ const Continents = () => {
                   ]
                 }
               >
-                <CountryLabel />
                 {countries.map((country) => {
                   return (
-                    <CountryLabel
+                    <CountryBox
                       img={country.img}
                       country={country.country}
                       key={country.country}

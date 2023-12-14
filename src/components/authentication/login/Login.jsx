@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../redux/auth-reducer";
+import { loginAuth } from "../../../api/authentication";
 const Login = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
@@ -38,20 +39,7 @@ const Login = () => {
       setPasswordWarning({ status: true, message: "Hasło jest za krótkie" });
     }
     if (login.length > 0 && password.length >= 6) {
-      const response = await fetch(
-        "https://geo-meta-rest-api.vercel.app/api/users/login",
-        // "http://localhost:9001/api/users/login",
-        {
-          method: "POST",
-          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: "same-origin", // include, *same-origin, omit
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username: login, password: password }),
-        }
-      );
-      const data = await response.json();
+      const data = await loginAuth(login, password);
       if (data.message === "Login or password too short") {
         setLoginWarning({
           status: true,
