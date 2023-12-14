@@ -1,10 +1,10 @@
 import { useParams, useLocation, useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import classes from "./topic.module.scss";
-import TopicBox from "../TopicBox";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
-const Topic = (props) => {
+import { getComments } from "../../../api/forum";
+const Topic = () => {
   let { topicId } = useParams();
   const location = useLocation();
   const loader = useLoaderData();
@@ -13,18 +13,12 @@ const Topic = (props) => {
   useEffect(() => {
     if (commentsUpdated === true) {
       const refreshComments = async () => {
-        const response = await fetch(
-          `https://geo-meta-rest-api.vercel.app/api/forum/${topicId}/getComments`,
-          { mode: "cors" }
-        );
-        const data = await response.json();
-        setComments(data.data);
-        return data;
+        setComments(await getComments(topicId));
       };
       refreshComments();
       setCommentsUpdated(false);
     }
-  }, [commentsUpdated]);
+  }, [commentsUpdated, topicId]);
 
   return (
     <div className={classes["topic-container"]}>
@@ -56,12 +50,20 @@ const Topic = (props) => {
       </div>
       <div className={classes["topic-container__comments-section"]}>
         {comments.map((comment) => (
-          <Comment data={comment} />
+          <Comment
+            data={comment}
+            username={comment.username}
+            iconBackgroundColor={comment.iconBackgroundColor}
+            usernameShort={comment.usernameShort}
+            content={comment.content}
+            dateString={comment.dateString}
+            timeString={comment.timeString}
+          />
         ))}
       </div>
       <AddComment
-        data={location.state}
         onCommentsUpdate={() => setCommentsUpdated(true)}
+        topicId={location.state.topic_id}
       />
     </div>
   );

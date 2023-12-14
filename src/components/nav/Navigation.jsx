@@ -18,7 +18,7 @@ const Navigation = () => {
   const [userListShown, setUserListShown] = useState(false);
   const logoutHandler = () => {
     dispatch(logout());
-    localStorage.removeItem("username");
+    localStorage.removeItem("userName");
     localStorage.removeItem("iconBackgroundColor");
     localStorage.removeItem("email");
     localStorage.removeItem("iconmodaldisplay");

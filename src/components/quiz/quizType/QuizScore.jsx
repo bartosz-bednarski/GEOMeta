@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import check from "../../../assets/images/ui/check.svg";
 import cross from "../../../assets/images/ui/cross-mark.svg";
 import Button from "../../ui/Button";
-const QuizScore = (props) => {
+const QuizScore = ({ serverAnswers, userScore }) => {
   const navigate = useNavigate();
   return (
     <div className={classes["score-container"]}>
@@ -14,7 +14,7 @@ const QuizScore = (props) => {
             classes["score-container__context-container__answers-container"]
           }
         >
-          {props.serverAnswers.map((score) => (
+          {serverAnswers.map((score) => (
             <span
               className={
                 classes[
@@ -30,7 +30,7 @@ const QuizScore = (props) => {
             </span>
           ))}
         </div>
-        <h2>Twój wynik: {props.userScore} pnkt</h2>
+        <h2>Twój wynik: {userScore} pnkt</h2>
       </div>
       <div className={classes["score-container__buttons-container"]}>
         <Button content="Zagraj jeszcze raz" onClick={() => navigate(0)} />

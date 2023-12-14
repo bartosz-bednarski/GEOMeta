@@ -3,10 +3,10 @@ import Button from "../ui/Button";
 import userImg from "../../assets/images/ui/user.svg";
 import check from "../../assets/images/ui/checkmark-outline.svg";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { changeShortname } from "../../redux/auth-reducer";
-const Personal = (props) => {
+import { setNewUserShortname } from "../../api/profile";
+const Personal = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((state) => state.auth.accessToken);
   const username = useSelector((state) => state.auth.userName);
@@ -15,7 +15,6 @@ const Personal = (props) => {
   );
   const email = useSelector((state) => state.auth.email);
   const usernameShort = useSelector((state) => state.auth.usernameShort);
-  const navigate = useNavigate();
   const [shortName, setShortName] = useState("");
   const [shortNameWarning, setShortNameWarning] = useState({
     status: false,
@@ -44,22 +43,8 @@ const Personal = (props) => {
     }
     if (shortName.length === 2) {
       setLoader({ status: true, type: "loading" });
-      const url =
-        "https://geo-meta-rest-api.vercel.app/api/profile/changeShortname";
-      // const url = "http://localhost:9001/api/profile/changeShortname";
-      const response = await fetch(url, {
-        method: "POST",
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({
-          usernameShort: shortName,
-        }),
-      });
-      const data = await response.json();
+
+      const data = await setNewUserShortname(accessToken, shortName);
       if (data.message === "ok") {
         dispatch(changeShortname(shortName));
         setLoader({ status: true, type: "shortNameChanged" });

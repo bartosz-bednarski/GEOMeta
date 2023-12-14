@@ -3,12 +3,11 @@ import lockImg from "../../assets/images/ui/lock.svg";
 import Button from "../ui/Button";
 import check from "../../assets/images/ui/checkmark-outline.svg";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAccessToken } from "../../redux/auth-reducer";
-const Password = (props) => {
+import { setNewUserPassword } from "../../api/profile";
+const Password = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const accessToken = useSelector((state) => state.auth.accessToken);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -74,27 +73,15 @@ const Password = (props) => {
       newPasswordConfirm.length >= 6
     ) {
       setLoader({ status: true, type: "loading" });
-      const url =
-        "https://geo-meta-rest-api.vercel.app/api/profile/changePassword";
-      // const url = "http://localhost:9001/api/profile/changePassword";
-      const response = await fetch(url, {
-        method: "POST",
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({
-          oldPassword: oldPassword,
-          newPassword: newPassword,
-          newPasswordConfirm: newPasswordConfirm,
-        }),
-      });
-      const data = await response.json();
+
+      const data = await setNewUserPassword(
+        accessToken,
+        oldPassword,
+        newPassword,
+        newPasswordConfirm
+      );
       if (data.message === "Password changed") {
         setLoader({ status: true, type: "passwordChanged" });
-        // setResponseMessage({ status: true, message: "Password changed" });
         localStorage.removeItem("accessToken");
         localStorage.setItem("accessToken", data.body.accessToken);
         dispatch(updateAccessToken(data.body.accessToken));

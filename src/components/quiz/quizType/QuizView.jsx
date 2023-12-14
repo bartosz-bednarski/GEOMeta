@@ -28,7 +28,7 @@ const QuizView = (props) => {
       };
       props.setUserAnswers(newAnswers);
     }
-  }, [props.questions]);
+  }, [props.questions, props]);
   return (
     <div className={classes["quiz-view-container"]}>
       <h1>
@@ -65,6 +65,7 @@ const QuizView = (props) => {
                     props.setUserAnswers(newAnswers);
                   }}
                   id={props.questions.id}
+                  alt="quiz-img"
                 />
               </span>
             );
@@ -93,6 +94,7 @@ const QuizView = (props) => {
                     props.setUserAnswers(newAnswers);
                   }}
                   id={props.questions.id}
+                  alt="quiz-img"
                 />
               </span>
             );
@@ -121,6 +123,7 @@ const QuizView = (props) => {
                     props.setUserAnswers(newAnswers);
                   }}
                   id={props.questions.id}
+                  alt="quiz-img"
                 />
               </span>
             );

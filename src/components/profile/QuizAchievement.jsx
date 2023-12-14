@@ -4,16 +4,16 @@ import sumImg from "../../assets/images/ui/sum.svg";
 import flagImg from "../../assets/images/country/flags/chile.svg";
 import emblemImg from "../../assets/images/country/emblems/chile.svg";
 import plateImg from "../../assets/images/country/plates/canada.jpg";
-const QuizAchievement = (props) => {
+const QuizAchievement = ({ type, points, games }) => {
   return (
     <div className={classes["achievement-container"]}>
       <div className={classes["achievement-container__header-box"]}>
         <div className={classes["achievement-container__header-box__logo-box"]}>
-          {props.type == "Flagi" && <img src={flagImg} alt="flag" />}
-          {props.type == "Herby" && <img src={emblemImg} alt="emblem" />}
-          {props.type == "Rejestracje" && <img src={plateImg} alt="plate" />}
+          {type === "Flagi" && <img src={flagImg} alt="flag" />}
+          {type === "Herby" && <img src={emblemImg} alt="emblem" />}
+          {type === "Rejestracje" && <img src={plateImg} alt="plate" />}
         </div>
-        <span>Quiz {props.type}</span>
+        <span>Quiz {type}</span>
       </div>
       <div className={classes["achievement-container__achievement-box"]}>
         <div
@@ -30,7 +30,7 @@ const QuizAchievement = (props) => {
           >
             <img src={starImg} alt="star" />
           </div>
-          {props.points} punktów
+          {points} punktów
         </div>
         <div
           className={
@@ -46,7 +46,7 @@ const QuizAchievement = (props) => {
           >
             <img src={sumImg} alt="star" />
           </div>
-          {props.games} gier
+          {games} gier
         </div>
       </div>
     </div>

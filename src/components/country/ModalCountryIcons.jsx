@@ -1,6 +1,6 @@
 import classes from "./modalCountry.module.scss";
 import ModalLayout from "../ui/ModalLayout";
-import CountryDetailsBorder50 from "../ui/CountryDetailsBorder50";
+import LargeFrame from "../ui/LargeFrame";
 import { useEffect, useState } from "react";
 const CONTENT_ARRAY = [
   { type: "low", value: "Niska temperatura" },
@@ -18,8 +18,8 @@ const ModalCountryIcons = (props) => {
   const [numberOfDots, setNumberOfDots] = useState(2);
   const [pageNumber, setPageNumber] = useState(1);
   const incrementPageNum = () => {
-    if (numberOfDots == 5) {
-      if (pageNumber == 5) {
+    if (numberOfDots === 5) {
+      if (pageNumber === 5) {
         setPageNumber(5);
       } else {
         setPageNumber(pageNumber + 1);
@@ -29,8 +29,8 @@ const ModalCountryIcons = (props) => {
     }
   };
   const decrementPageNum = () => {
-    if (numberOfDots == 5) {
-      if (pageNumber == 1) {
+    if (numberOfDots === 5) {
+      if (pageNumber === 1) {
         setPageNumber(1);
       } else {
         setPageNumber(pageNumber - 1);
@@ -63,7 +63,7 @@ const ModalCountryIcons = (props) => {
           CONTENT_ARRAY.slice(0, 3).map((item) => {
             return (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type={item.type} border="purple" />
+                <LargeFrame type={item.type} border="purple" />
                 <span>{item.value}</span>
               </div>
             );
@@ -73,41 +73,41 @@ const ModalCountryIcons = (props) => {
           CONTENT_ARRAY.slice(3).map((item) => {
             return (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type={item.type} border="purple" />
+                <LargeFrame type={item.type} border="purple" />
                 <span>{item.value}</span>
               </div>
             );
           })}
 
-        {numberOfDots == 5 && (
+        {numberOfDots === 5 && (
           <>
-            {pageNumber == 1 && (
+            {pageNumber === 1 && (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type="low" border="purple" />
+                <LargeFrame type="low" border="purple" />
                 <span>Niska temperatura</span>
               </div>
             )}
-            {pageNumber == 2 && (
+            {pageNumber === 2 && (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type="medium" border="purple" />
+                <LargeFrame type="medium" border="purple" />
                 <span>Średnia temperatura</span>
               </div>
             )}
-            {pageNumber == 3 && (
+            {pageNumber === 3 && (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type="high" border="purple" />
+                <LargeFrame type="high" border="purple" />
                 <span>Wysoka temperatura</span>
               </div>
             )}
-            {pageNumber == 4 && (
+            {pageNumber === 4 && (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type="leftHand" border="purple" />
+                <LargeFrame type="leftHand" border="purple" />
                 <span>Ruch lewostronny</span>
               </div>
             )}
-            {pageNumber == 5 && (
+            {pageNumber === 5 && (
               <div className={classes["content-row__column"]}>
-                <CountryDetailsBorder50 type="rightHand" border="purple" />
+                <LargeFrame type="rightHand" border="purple" />
                 <span>Ruch prawostronny</span>
               </div>
             )}
@@ -132,37 +132,37 @@ const ModalCountryIcons = (props) => {
       <span className={classes["dots-box"]}>
         <span
           className={`${classes["dots-box__dot"]} ${
-            pageNumber == 1
+            pageNumber === 1
               ? classes["dots-box__dot--active"]
               : classes["dots-box__dot--disabled"]
           }`}
         />
         <span
           className={`${classes["dots-box__dot"]} ${
-            pageNumber == 2
+            pageNumber === 2
               ? classes["dots-box__dot--active"]
               : classes["dots-box__dot--disabled"]
           }`}
         />
-        {numberOfDots == 5 && (
+        {numberOfDots === 5 && (
           <>
             <span
               className={`${classes["dots-box__dot"]} ${
-                pageNumber == 3
+                pageNumber === 3
                   ? classes["dots-box__dot--active"]
                   : classes["dots-box__dot--disabled"]
               }`}
             />
             <span
               className={`${classes["dots-box__dot"]} ${
-                pageNumber == 4
+                pageNumber === 4
                   ? classes["dots-box__dot--active"]
                   : classes["dots-box__dot--disabled"]
               }`}
             />
             <span
               className={`${classes["dots-box__dot"]} ${
-                pageNumber == 5
+                pageNumber === 5
                   ? classes["dots-box__dot--active"]
                   : classes["dots-box__dot--disabled"]
               }`}

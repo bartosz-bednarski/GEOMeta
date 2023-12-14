@@ -7,28 +7,7 @@ import AfricaImg from "../../assets/images/continents/AfricaImg";
 import AustraliaImg from "../../assets/images/continents/AustraliaImg";
 import WorldImg from "../../assets/images/continents/WorldImg";
 import Stamp from "../ui/Stamp";
-const WorldMap = (props) => {
-  var month = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const date = new Date();
-  let day = new String(date.getDate());
-  day = day.length === 1 ? `0${day}` : day;
-  const dateToExp =
-    day + " " + month[date.getMonth()] + " " + date.getFullYear();
-  const activeContinent = props.activeContinent;
-  const activeContinentHandler = props.activeContinentHandler;
+const WorldMap = ({ activeContinent, activeContinentHandler }) => {
   return (
     <main className={classes["continents__map-container"]}>
       {!activeContinent.active && (
@@ -37,8 +16,7 @@ const WorldMap = (props) => {
       {activeContinent.id === "northAmerica" && (
         <Stamp
           continent={activeContinent.continent}
-          date={dateToExp}
-          style="northAmerica"
+          continentStyle="northAmerica"
         >
           <NorthAmericaImg
             activeContinent={activeContinent}
@@ -49,8 +27,7 @@ const WorldMap = (props) => {
       {activeContinent.id === "southAmerica" && (
         <Stamp
           continent={activeContinent.continent}
-          date={dateToExp}
-          style="southAmerica"
+          continentStyle="southAmerica"
         >
           <SouthAmericaImg
             activeContinent={activeContinent}
@@ -59,11 +36,7 @@ const WorldMap = (props) => {
         </Stamp>
       )}
       {activeContinent.id === "europe" && (
-        <Stamp
-          continent={activeContinent.continent}
-          date={dateToExp}
-          style="europe"
-        >
+        <Stamp continent={activeContinent.continent} continentStyle="europe">
           <EuropeImg
             activeContinent={activeContinent}
             activeContinentHandler={activeContinentHandler}
@@ -71,11 +44,7 @@ const WorldMap = (props) => {
         </Stamp>
       )}
       {activeContinent.id === "africa" && (
-        <Stamp
-          continent={activeContinent.continent}
-          date={dateToExp}
-          style="africa"
-        >
+        <Stamp continent={activeContinent.continent} continentStyle="africa">
           <AfricaImg
             activeContinent={activeContinent}
             activeContinentHandler={activeContinentHandler}
@@ -83,11 +52,7 @@ const WorldMap = (props) => {
         </Stamp>
       )}
       {activeContinent.id === "asia" && (
-        <Stamp
-          continent={activeContinent.continent}
-          date={dateToExp}
-          style="asia"
-        >
+        <Stamp continent={activeContinent.continent} continentStyle="asia">
           <AsiaImg
             activeContinent={activeContinent}
             activeContinentHandler={activeContinentHandler}
@@ -95,11 +60,7 @@ const WorldMap = (props) => {
         </Stamp>
       )}
       {activeContinent.id === "oceania" && (
-        <Stamp
-          continent={activeContinent.continent}
-          date={dateToExp}
-          style="oceania"
-        >
+        <Stamp continent={activeContinent.continent} continentStyle="oceania">
           <AustraliaImg
             activeContinent={activeContinent}
             activeContinentHandler={activeContinentHandler}

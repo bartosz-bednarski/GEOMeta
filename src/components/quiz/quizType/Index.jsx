@@ -6,12 +6,13 @@ import QuizScore from "./QuizScore";
 import { useDispatch } from "react-redux";
 import { updateAchievements } from "../../../redux/achievements-reducer";
 import Loader from "../../ui/Loader";
+import { postUserAnswers } from "../../../api/quiz";
 const QuizType = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const accessToken = localStorage.getItem("accessToken");
   const loader = useLoaderData();
-  const [data, setData] = useState(loader.data);
+  const data = loader.data;
   const [questions, setQuestions] = useState({
     id: 0,
     question: loader.data[0].question,
@@ -43,35 +44,13 @@ const QuizType = () => {
     });
   };
 
-  const postAnswersHTTP = async () => {
+  const postUserAnswersHandler = async () => {
     setIsFetching(true);
-    const param = params.quizType;
-    console.log(param);
-    const url = accessToken
-      ? `https://geo-meta-rest-api.vercel.app/api/quiz/post${
-          param[0].toUpperCase() + param.slice(1)
-        }/auth`
-      : `https://geo-meta-rest-api.vercel.app/api/quiz/post${
-          param[0].toUpperCase() + param.slice(1)
-        }`;
-    // const url = accessToken
-    //   ? `http://localhost:9001/api/quiz/post${
-    //       param[0].toUpperCase() + param.slice(1)
-    //     }/auth`
-    //   : `http://localhost:9001/api/quiz/post${
-    //       param[0].toUpperCase() + param.slice(1)
-    //     }`;
-    const response = await fetch(url, {
-      method: "POST",
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(userAnswers),
-    });
-    const data = await response.json();
+    const data = await postUserAnswers(
+      accessToken,
+      params.quizType,
+      userAnswers
+    );
     setIsFetching(false);
     if ((data.message = "ok")) {
       dispatch(updateAchievements());
@@ -82,8 +61,7 @@ const QuizType = () => {
 
   useEffect(() => {
     if (getAnswers === true) {
-      postAnswersHTTP();
-      console.log("getAnswers");
+      postUserAnswersHandler();
     }
   }, [getAnswers]);
   if (isFetching) {

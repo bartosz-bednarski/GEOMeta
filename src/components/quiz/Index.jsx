@@ -2,7 +2,6 @@ import QuizLogo from "../ui/QuizLogo";
 import classes from "./quiz.module.scss";
 import Button from "../ui/Button";
 import QuizTypeBox from "./QuizTypeBox";
-import ContinentImg from "../../assets/images/forum/continent.png";
 import FlagImg from "../../assets/images/forum/chileFlag.svg";
 import EmblemImg from "../../assets/images/forum/chileEmblem.svg";
 import PlateImg from "../../assets/images/forum/colombia.jpg";
@@ -50,7 +49,6 @@ const Quiz = () => {
             navigate("plates");
           }}
         />
-        {/* <QuizTypeBox img={ContinentImg} type="KONTYNENTY" /> */}
       </div>
     </div>
   );

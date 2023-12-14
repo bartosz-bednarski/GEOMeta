@@ -4,6 +4,7 @@ import World from "../../../assets/images/home/world.png";
 import Button from "../../ui/Button";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { registerAuth } from "../../../api/authentication";
 const Register = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
@@ -45,27 +46,7 @@ const Register = () => {
       setPasswordWarning({ status: true, message: "Hasło jest za krótkie" });
     }
     if (login.length > 0 && password.length >= 6 && email.length > 0) {
-      const randomColor = `#${Math.floor(Math.random() * 16777215).toString(
-        16
-      )}`;
-      const response = await fetch(
-        "https://geo-meta-rest-api.vercel.app/api/users/register",
-        {
-          method: "POST",
-          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: "same-origin", // include, *same-origin, omit
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: login,
-            email: email,
-            password: password,
-            iconBackgroundColor: randomColor,
-          }),
-        }
-      );
-      const data = await response.json();
+      const data = await registerAuth(login, email, password);
       if (data.message === "Login,password or email too short") {
         setLoginWarning({
           status: true,
