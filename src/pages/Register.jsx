@@ -1,4 +1,4 @@
-import Register from "../components/authentication/register/Register";
+import Register from "../components/authentication/register/Register.tsx";
 
 const RegisterPage = () => {
   return <Register />;

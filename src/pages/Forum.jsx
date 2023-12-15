@@ -1,4 +1,4 @@
-import Forum from "../components/forum/Index";
+import Forum from "../components/forum/Index.tsx";
 
 const ForumPage = () => {
   return <Forum />;
