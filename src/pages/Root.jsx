@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import classes from "../styles/globals/layout.module.scss";
-import Navigation from "../components/nav/Navigation";
-import Footer from "../components/footer/Footer";
+import Navigation from "../components/nav/Navigation.tsx";
+import Footer from "../components/footer/Footer.tsx";
 const RootLayout = () => {
   const location = useLocation();
   return (

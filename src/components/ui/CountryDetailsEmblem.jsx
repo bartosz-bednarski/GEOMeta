@@ -1,5 +1,4 @@
 import classes from "./countryDetailsEmblem.module.scss";
-import poland from "../../assets/images/country/emblems/poland.svg.png";
 const CountryDetailsEmblem = (props) => {
   const emblemImg = require(`../../assets/images/country/emblems/${props.emblem}`);
   return (

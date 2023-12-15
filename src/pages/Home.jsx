@@ -1,4 +1,4 @@
-import Home from "../components/home/Index";
+import Home from "../components/home/Index.tsx";
 
 const HomePage = () => {
   return <Home />;

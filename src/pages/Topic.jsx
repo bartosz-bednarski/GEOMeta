@@ -1,4 +1,4 @@
-import Topic from "../components/forum/topic/Index";
+import Topic from "../components/forum/topic/Index.tsx";
 const TopicPage = () => {
   return <Topic />;
 };
