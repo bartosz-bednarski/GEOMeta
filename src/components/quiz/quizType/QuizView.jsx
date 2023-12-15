@@ -18,7 +18,9 @@ const QuizView = (props) => {
         props.setQuestionsHandler();
         setTimeLeft(10);
 
-        return clearInterval(intervalID.current), clearTimeout(timeout.current);
+        return (
+          clearInterval(intervalID.current) & clearTimeout(timeout.current)
+        );
       }, 10000);
       let newAnswers = [...props.userAnswers];
       newAnswers[props.questions.id] = {
@@ -28,7 +30,7 @@ const QuizView = (props) => {
       };
       props.setUserAnswers(newAnswers);
     }
-  }, [props.questions, props]);
+  }, [props.questions]);
   return (
     <div className={classes["quiz-view-container"]}>
       <h1>
