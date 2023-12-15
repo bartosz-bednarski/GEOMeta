@@ -1,6 +1,6 @@
 import ModalContent from "./ModalContent";
 import classes from "./modal.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 const ModalLayout = (props) => {
   const [modalHidden, setModalHidden] = useState();
   return (

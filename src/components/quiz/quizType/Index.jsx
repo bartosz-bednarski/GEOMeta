@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import QuizView from "./QuizView";
 import QuizScore from "./QuizScore";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../redux/hooks";
 import { updateAchievements } from "../../../redux/achievements-reducer";
 import Loader from "../../ui/Loader";
 import { postUserAnswers } from "../../../api/quiz";
 const QuizType = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const params = useParams();
   const accessToken = localStorage.getItem("accessToken");
   const loader = useLoaderData();
