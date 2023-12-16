@@ -1,3 +1,4 @@
+import React from "react";
 import QuizLogo from "../ui/QuizLogo";
 import classes from "./quiz.module.scss";
 import Button from "../ui/Button";
@@ -7,7 +8,7 @@ import EmblemImg from "../../assets/images/forum/chileEmblem.svg";
 import PlateImg from "../../assets/images/forum/colombia.jpg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-const Quiz = () => {
+const Quiz: React.FC = () => {
   const navigate = useNavigate();
   const [quizSelected, setQuizSelected] = useState(false);
   return (

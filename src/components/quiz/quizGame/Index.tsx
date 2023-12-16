@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "./quiz.module.scss";
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
@@ -7,20 +8,23 @@ import { useAppDispatch } from "../../../redux/hooks";
 import { updateAchievements } from "../../../redux/achievements-reducer";
 import Loader from "../../ui/Loader";
 import { postUserAnswers } from "../../../api/quiz";
-const QuizType = () => {
+import { questions, quizGameLoader, userAnswers } from "quiz";
+const QuizGame: React.FC = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
   const accessToken = localStorage.getItem("accessToken");
-  const loader = useLoaderData();
-  const data = loader.data;
-  const [questions, setQuestions] = useState({
+  const loader = useLoaderData() as quizGameLoader;
+  const quizQuestions = loader.data;
+  const [questions, setQuestions] = useState<questions>({
     id: 0,
     question: loader.data[0].question,
     data: loader.data[0].data,
     updated: false,
   });
-  const [getAnswers, setGetAnswers] = useState(false);
-  const [userAnswers, setUserAnswers] = useState([]);
+  const [getAnswers, setGetAnswers] = useState<boolean>(false);
+  const [userAnswers, setUserAnswers] = useState<userAnswers>([
+    { id: 0, user_answer: "", correct_answer: "" },
+  ]);
   const [serverAnswers, setServerAnswers] = useState("");
   const [userScore, setUserScore] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
@@ -29,8 +33,8 @@ const QuizType = () => {
       if (prevState.id < 4) {
         return {
           id: prevState.id + 1,
-          question: data[prevState.id + 1].question,
-          data: data[prevState.id + 1].data,
+          question: quizQuestions[prevState.id + 1].question,
+          data: quizQuestions[prevState.id + 1].data,
         };
       }
       if (prevState.id === 4) {
@@ -71,9 +75,9 @@ const QuizType = () => {
     <div className={classes["flags-layout"]}>
       {questions.id !== 5 && (
         <QuizView
-          data={data}
+          quizQuestions={quizQuestions}
           setQuestionsHandler={setQuestionsHandler}
-          setUserAnswers={(answers) => setUserAnswers(answers)}
+          setUserAnswers={(answers: userAnswers) => setUserAnswers(answers)}
           questions={questions}
           userAnswers={userAnswers}
         />
@@ -84,4 +88,4 @@ const QuizType = () => {
     </div>
   );
 };
-export default QuizType;
+export default QuizGame;
